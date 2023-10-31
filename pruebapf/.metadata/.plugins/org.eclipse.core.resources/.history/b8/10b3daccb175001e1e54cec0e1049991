@@ -1,0 +1,57 @@
+package com.creandosoft.administrativo.datos.persistences;
+
+import java.io.Serializable;
+import javax.persistence.*;
+
+/**
+ * The primary key class for the af_registro_siau_soporte database table.
+ * 
+ */
+@Embeddable
+public class AfRegistroSiauSoportePK implements Serializable {
+
+  private static final long serialVersionUID = 8469980338792675228L;
+  @Column(name = "consecutivo_siau")
+  private Long consecutivoSiau;
+  @Column(name = "consecutivo_soporte")
+  private Long consecutivoSoporte;
+
+  public AfRegistroSiauSoportePK() {
+  }
+
+  public Long getConsecutivoSiau() {
+    return this.consecutivoSiau;
+  }
+
+  public void setConsecutivoSiau(Long consecutivoSiau) {
+    this.consecutivoSiau = consecutivoSiau;
+  }
+
+  public Long getConsecutivoSoporte() {
+    return this.consecutivoSoporte;
+  }
+
+  public void setConsecutivoSoporte(Long consecutivoSoporte) {
+    this.consecutivoSoporte = consecutivoSoporte;
+  }
+
+  public boolean equals(Object other) {
+    if (this == other) {
+      return true;
+    }
+    if (!(other instanceof AfRegistroSiauSoportePK)) {
+      return false;
+    }
+    AfRegistroSiauSoportePK castOther = (AfRegistroSiauSoportePK) other;
+    return this.consecutivoSiau.equals(castOther.consecutivoSiau) && this.consecutivoSoporte.equals(castOther.consecutivoSoporte);
+  }
+
+  public int hashCode() {
+    final int prime = 31;
+    int hash = 17;
+    hash = hash * prime + this.consecutivoSiau.hashCode();
+    hash = hash * prime + this.consecutivoSoporte.hashCode();
+
+    return hash;
+  }
+}

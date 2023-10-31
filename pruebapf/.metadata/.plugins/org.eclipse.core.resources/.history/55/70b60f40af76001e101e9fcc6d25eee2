@@ -1,0 +1,71 @@
+@charset "UTF-8";
+
+/* Fondo gris */
+body {
+    background-color: #f2f2f2; /* Gris claro */
+}
+
+/* Encabezado azul claro */
+.header {
+    background-color: #b3e0ff; /* Azul claro */
+    color: #333; /* Texto oscuro */
+}
+
+/* Botón con fondo azul claro y texto blanco */
+.button {
+    background-color: #b3e0ff; /* Azul claro */
+    color: #fff; /* Texto blanco */
+    border: 1px solid #007acc; /* Borde azul */
+}
+
+/* Enlaces azules */
+a {
+    color: #007acc; /* Azul */
+}
+
+/* Texto gris oscuro */
+.gray-text {
+    color: #333; /* Gris oscuro */
+}
+
+/* Centrar el formulario verticalmente */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Estilos para el formulario */
+#formBlogMtto {
+    max-width: 400px;
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para el encabezado */
+h3 {
+    text-align: center;
+    margin-top: 0;
+    color: #007acc; /* Color de título azul */
+}
+
+/* Estilos para las etiquetas y campos de entrada */
+.p-outputlabel, .p-inputtext {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/* Estilo para el botón de envío */
+.p-button {
+    width: 100%;
+}
+
+
+
+

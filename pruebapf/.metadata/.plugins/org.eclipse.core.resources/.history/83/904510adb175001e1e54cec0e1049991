@@ -1,0 +1,45 @@
+package models;
+
+import java.io.Serializable;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "blogs_readers")
+public class BlogsReaders implements Serializable{
+
+
+@Column(name="id")
+private long id;
+
+@Column(name="names")
+private String names;
+
+
+public BlogsReaders() {
+	
+}
+
+
+public long getId() {
+	return id;
+}
+
+
+public void setId(long id) {
+	this.id = id;
+}
+
+
+public String getNames() {
+	return names;
+}
+
+
+public void setNames(String names) {
+	this.names = names;
+}
+
+
+
+}

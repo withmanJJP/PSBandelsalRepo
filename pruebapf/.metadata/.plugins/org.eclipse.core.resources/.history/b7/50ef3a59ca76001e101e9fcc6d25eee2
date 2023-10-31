@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf16985189504560" configfile="/testpf/src/main/webapp/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="*" id="pf169862737516618" referenceLink="//@navigationRule.4/@fromViewId|" outlinks="pf169862737516619 pf169862737516621 pf169862737516622 pf169862738958526 pf169863085247628 pf169863087673030" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="dashboard.xhtml" id="pf169862737516623" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" inlinks="pf169862737516619 pf169862737516621" path="/dashboard.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/blogs/blogs_edition.xhtml" id="pf169862737516625" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" inlinks="pf169862737516622" path="/pages/blogs/blogs_edition.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/blogs/blogs_query.xhtml" id="pf169862738958527" referenceLink="//@navigationRule.4/@navigationCase.0/@toViewId|" inlinks="pf169862738958526" path="/pages/blogs/blogs_query.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/readers/readers_edition.xhtml" id="pf169863085247629" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" inlinks="pf169863085247628" path="/pages/readers/readers_edition.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/reader/readers_query.xhtml" id="pf169863087673031" referenceLink="//@navigationRule.4/@navigationCase.0/@toViewId|" inlinks="pf169863087673030" path="/pages/reader/readers_query.xhtml"/>
+  <links id="pf169862737516619" target="pf169862737516623" source="pf169862737516618" outcome="loginSuccess"/>
+  <links id="pf169862737516621" target="pf169862737516623" source="pf169862737516618" outcome="dashboard"/>
+  <links id="pf169862737516622" target="pf169862737516625" source="pf169862737516618" outcome="blogsEdit"/>
+  <links id="pf169862738958526" target="pf169862738958527" source="pf169862737516618" outcome="blogsQuery"/>
+  <links id="pf169863085247628" target="pf169863085247629" source="pf169862737516618" outcome="readersEdit"/>
+  <links id="pf169863087673030" target="pf169863087673031" source="pf169862737516618" outcome="readersQuery"/>
+</pageflow:Pageflow>

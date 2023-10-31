@@ -1,0 +1,33 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/template_dashboard.xhtml">
+
+	<ui:define name="head">
+	</ui:define>
+
+	<ui:define name="subheader">
+        Dashboard
+    </ui:define>
+
+	<ui:define name="content">
+		<div class="layout-dashboard">
+		<h:form id="formDashboard" enctype="multipart/form-data" prependId="false">
+			<ui:fragment rendered="#{dashboardFormBean.phase == 'DASHBOARD'}">
+				<ui:include src="/pages/dashboard/dashboard.xhtml" />
+			</ui:fragment>
+	
+		</h:form>
+		</div>	
+<!-- 		<div class="layout-config"> -->
+<!-- 			<h:form id="formFloat" enctype="multipart/form-data" prependId="false"> -->
+<!-- 			<ui:fragment> -->
+<!-- 				<ui:include src="floatbar.xhtml"/> -->
+<!-- 			</ui:fragment> -->
+<!-- 			</h:form> -->
+<!-- 		</div> -->
+	</ui:define>
+
+</ui:composition>

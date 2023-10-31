@@ -1,0 +1,135 @@
+package services;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+
+import dto.ReadersDto;
+import models.Consecutivo;
+import models.Readers;
+import utils.NextConsecutive;
+
+@Named("readersImplServices")
+@RequestScoped
+public class ReadersImplServices {
+	
+	 @PersistenceContext(unitName="bandelsal")
+	 private final EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
+	 
+	
+	public ReadersImplServices() {
+		
+	}
+
+	
+	 public synchronized long getSequence(String tabla) {
+		 em.getTransaction().begin();   
+		 Consecutivo c = em.find(Consecutivo.class, tabla);
+		    long valor = c.getValor();
+		    c.setValor(valor + 1);
+		    em.merge(c);
+		    //actualizo el valor
+		    em.getTransaction().commit();
+		    return valor;
+		  }
+	
+	
+   
+    public List<ReadersDto> getReadersDto(ReadersDto reader) {
+        List<ReadersDto> result = new ArrayList<ReadersDto>();
+        List<Readers> list = new ArrayList<Readers>();
+
+        StringBuffer sql = new StringBuffer();
+        Query query = null;
+        Map<String, Object> map = new HashMap<String, Object>();
+
+        sql.append("SELECT o FROM ");
+        sql.append(Readers.class.getCanonicalName());
+        sql.append(" o WHERE 1 = 1 ");
+
+        if (reader.getId() > 0) {
+            sql.append(" AND o.id = :id ");
+            map.put("id", reader.getId());
+        }
+
+        if (reader.getNames() != null && !reader.getNames().isEmpty()) {
+            sql.append(" AND o.names = :o.names ");
+            map.put("names", "%" + reader.getNames() + "%");
+        }
+
+        sql.append(" ORDER BY o.id ");
+        query = em.createQuery(sql.toString());
+        for (Map.Entry<String, Object> valor : map.entrySet()) {
+            query.setParameter(valor.getKey(), valor.getValue());
+        }
+
+        list = query.getResultList();
+        for (Readers r : list) {
+			ReadersDto rDto = new ReadersDto();
+			rDto.setId(r.getId());
+			rDto.setNames(r.getNames());
+			result.add(rDto);
+		}
+        
+        return result;
+    }
+
+    public void create(ReadersDto readersDto) {
+        em.getTransaction().begin();
+        Readers blog = new Readers();
+        blog.setId(getSequence(NextConsecutive.READERS));
+        blog.setNames(readersDto.getNames());
+        em.persist(blog);
+        em.getTransaction().commit();
+    }
+
+    public ReadersDto getBlogById(Long id) {
+    	ReadersDto dto = new ReadersDto();
+    	Readers blog = em.find(Readers.class, id);
+    	if (blog != null) {
+			dto.setId(blog.getId());
+			dto.setNames(blog.getTitle());
+		}
+    	
+    	return dto;
+    }
+
+    public void update(ReadersDto dto) {
+    	Readers blog = em.find(Readers.class, dto.getId());
+    	blog.setId(dto.getId());
+    	blog.setTitle(dto.getTitle());
+    	blog.setDescription(dto.getDescription());
+        em.getTransaction().begin();
+        em.merge(blog);
+        em.getTransaction().commit();
+    }
+
+    public void delete(Long id) {
+        em.getTransaction().begin();
+        Readers blog = em.find(Readers.class, id);
+        if (blog != null) {
+            em.remove(blog);
+        }
+        em.getTransaction().commit();
+    }
+//
+//    public void createBlogReader(Blog blog, Reader reader) {
+//        em.getTransaction().begin();
+//        ReadersReaders br = new ReadersReaders();
+//        br.setB_id(blog.getId());
+//        br.setR_id(reader.getId());
+//        em.persist(br);
+//        em.getTransaction().commit();
+//    }
+
+
+
+}
+

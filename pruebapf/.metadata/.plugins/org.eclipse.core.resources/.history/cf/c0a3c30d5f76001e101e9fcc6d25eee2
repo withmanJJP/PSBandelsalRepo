@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" lang="en">
+
+<h:head>
+	<f:facet name="first">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<link rel="icon"
+			href="#{request.contextPath}/resources/rain-layout/images/favicon.ico"
+			type="image/x-icon"></link>
+	</f:facet>
+	<title>HCE : creandosoft.com</title>
+
+
+
+	<ui:insert name="head" />
+
+	<script type='text/javascript'>
+		$(function() {
+			$(document).bind("contextmenu", function(e) {
+				return false;
+			});
+		});
+	</script>
+
+</h:head>
+<!--     <h:body styleClass="#{guestPreferences.inputStyleClass}" onload=" nobackbutton();return false;"> -->
+<h:body >
+
+	<div
+		class="layout-wrapper layout-topbar-#{guestPreferences.topbarTheme} layout-menu-#{guestPreferences.menuTheme} #{guestPreferences.menuMode}">
+		
+
+
+		<div id="wrapper">
+			<div id="wrapperIndent">
+
+				<ui:include src="layoutmenu.xhtml" />
+
+
+
+				<div id="layout-portlets-cover">
+					<div class="Container100 Fnone MarAuto">
+
+
+						<!-- SUB TOPBAR END -->
+
+						<div class="Container100 Responsive100">
+							<div class="ContainerIndent">
+								<ui:insert name="content">
+			                            Template
+			                        </ui:insert>
+							</div>
+						</div>
+
+						<!-- footer -->
+
+						<div class="Container100" style="text-align: center;">
+							<p:messages id="messages" showDetail="true" autoUpdate="true"
+								closable="true" widgetVar="messages" />
+
+						
+						</div>
+					
+					</div>
+				</div>
+
+				<p:ajaxStatus
+					style="width:32px;height:32px;position:fixed;right:7px;bottom:7px">
+					<f:facet name="start">
+						<p:graphicImage name="images/preloader.gif" library="rain-layout" />
+					</f:facet>
+
+					<f:facet name="complete">
+						<h:outputText value="" />
+					</f:facet>
+				</p:ajaxStatus>
+			</div>
+		</div>
+
+		<!--         <h:form id="formMtto" prependId="false"> -->
+		<!-- 	   <p:panel> -->
+		<!-- 		 <p:dialog  widgetVar="varRta" id="dlgRta" minHeight="20" width="1000" style="z-index:100000" modal="true"> -->
+		<!--              <h:panelGroup> -->
+		<!-- 				<ui:include src="/WEB-INF/modal_include_general_search.xhtml" /> -->
+		<!-- 			</h:panelGroup> -->
+
+		<!--         </p:dialog> -->
+		<!--         <p:dialog id="general-dialog" showEffect="fade" -->
+		<!-- 			widgetVar="widget-general-dialog" resizable="false" draggable="false" -->
+		<!-- 			dynamic="true" modal="true" closeOnEscape="true" -->
+		<!-- 			style="margin-left: 15%;margin-right: 15%;" -->
+		<!-- 			styleClass="modalDashboard" responsive="true" header=""> -->
+
+		<!-- 			<ui:fragment> -->
+		<!-- 				<ui:include src="#{guestPreferences.urlDialog}" /> -->
+		<!-- 			</ui:fragment> -->
+		<!-- 		</p:dialog> -->
+		<!--        </p:panel> -->
+		<!--       </h:form> -->
+	</div>
+
+</h:body>
+
+
+</html>

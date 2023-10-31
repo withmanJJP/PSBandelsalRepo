@@ -1,0 +1,47 @@
+package com.creandosoft.administrativo.datos.dtos;
+
+import com.creandosoft.administrativo.datos.persistences.TbMarca;
+import com.creandosoft.administrativo.publico.utils.ValoresConsecutivo;
+import com.creandosoft.fm.core.annotations.FmLinkMark;
+import com.creandosoft.fm.core.annotations.FmSequenceMark;
+import com.creandosoft.fm.core.dtos.FmDto;
+import com.creandosoft.fm.csm.annotations.CsmKeyMark;
+import com.creandosoft.fm.csm.annotations.CsmQueryMark;
+
+/**
+ * 
+ * @author gerson.pabon
+ *
+ */
+@FmLinkMark(persistence = TbMarca.class)
+public class TbMarcaDto extends FmDto {
+
+  private static final long serialVersionUID = 1413134831559756001L;
+  @CsmKeyMark
+  @CsmQueryMark
+  @FmSequenceMark(tableName = ValoresConsecutivo.TB_MARCA, defaultValue = 0)
+  private long consecutivoMarca;
+
+  @CsmQueryMark
+  private String descripcion;
+
+  public TbMarcaDto() {
+  }
+
+  public long getConsecutivoMarca() {
+    return consecutivoMarca;
+  }
+
+  public void setConsecutivoMarca(long consecutivoMarca) {
+    this.consecutivoMarca = consecutivoMarca;
+  }
+
+  public String getDescripcion() {
+    return descripcion;
+  }
+
+  public void setDescripcion(String descripcion) {
+    this.descripcion = descripcion;
+  }
+
+}

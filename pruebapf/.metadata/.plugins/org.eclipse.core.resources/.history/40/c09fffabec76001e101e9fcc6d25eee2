@@ -1,0 +1,37 @@
+package dto;
+
+import java.io.Serializable;
+
+public class ReadersDto implements Serializable {
+
+  
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 4851355715419281702L;
+
+private long id;
+
+  private String names;
+
+  public ReadersDto() {
+  }
+
+public long getId() {
+	return id;
+}
+
+public void setId(long id) {
+	this.id = id;
+}
+
+public String getNames() {
+	return names;
+}
+
+public void setNames(String names) {
+	this.names = names;
+}
+
+
+}

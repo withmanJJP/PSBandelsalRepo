@@ -1,0 +1,6 @@
+package bean;
+
+public class Snippet {
+	usuario varchar(200) NOT NULL,
+}
+

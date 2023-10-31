@@ -1,0 +1,67 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pu="http://primefaces.org/ultima">
+
+
+	<!-- TOPBAR START -->
+	<div id="layout-topbar" class="layout-topbar">
+		<div class="layout-topbar-wrapper">
+			<!--     <h:form prependId="false"> -->
+
+			<!-- 			<a href="dashboard.xhtml" id="logo"> <h:graphicImage -->
+			<!-- 					url="/static/images/plantilla/logothewala.png" style="width:50px; height:50px; "/> -->
+			<!-- 			</a> -->
+
+			<div class="layout-topbar-left">
+				<h:link id="logolink" outcome="/dashboard"
+					styleClass="layout-topbar-logo">
+					<!--                     <p:graphicImage style="height: 60px !important;" name="images/#{ guestPreferences.lightLogo ? 'logo-ibss.png' : 'logo-ibss.png'}"  library="rain-layout" /> -->
+					<p:graphicImage style="height: 60px !important;" library="rain-layout" />
+
+				</h:link>
+			</div>
+
+
+			<div class="layout-topbar-right">
+				<div class="menu-button-wrapper">
+					<a href="#" class="menu-button">
+						<div class="menu-button-bars">
+							<span></span> <span></span> <span></span>
+						</div>
+						<div class="menu-button-times">
+							<span></span> <span></span>
+						</div>
+					</a>
+				</div>
+
+			
+
+								<!--           <ul class="layout-topbar-actions"> -->
+				<!--           		<li class="topbar-item salir"> -->
+				<!--           			<a href="#"> -->
+				<!-- 	                        <span class="ui-overlay-badge"> -->
+				<!-- 					        	<i class="topbar-icon pi pi-power-off" style="font-size: 24px;"></i> -->
+				<!-- 					        </span> -->
+				<!--                         </a> -->
+				<!--                         <ul> -->
+				<!--                         	<h:link id="logout" href="/hce/" > -->
+				<!-- 	                            <li class="layout-submenu-header"> -->
+				<!-- 	                            	<i class="topbar-icon pi pi-key" style="font-size: 24px;color:red;"></i> -->
+				<!-- 	                           		<h6 style="color:red;" class="header-text">#{msgRecurso.cmd_salir}</h6> -->
+				<!-- 	                            </li> -->
+				<!--                             </h:link> -->
+				<!--                         </ul> -->
+
+				<!--           		</li> -->
+				<!--           </ul> -->
+
+			</div>
+
+			<!--       </h:form>   -->
+		</div>
+	</div>
+	<!-- TOPBAR END -->
+</ui:composition>

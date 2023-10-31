@@ -1,0 +1,41 @@
+package models;
+
+import java.io.Serializable;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "blogs_readers")
+public class BlogsReaders implements Serializable{
+
+
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5957260091778266065L;
+
+	@EmbeddedId
+	private BlogsReadersPK id;
+
+
+
+public BlogsReaders() {
+	
+}
+
+
+
+public BlogsReadersPK getId() {
+	return id;
+}
+
+
+
+public void setId(BlogsReadersPK id) {
+	this.id = id;
+}
+
+
+
+
+}

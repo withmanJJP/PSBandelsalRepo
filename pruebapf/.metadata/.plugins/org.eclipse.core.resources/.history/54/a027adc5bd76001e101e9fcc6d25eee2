@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf16985189504560" configfile="/testpf/src/main/webapp/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="*" id="pf16985191341044" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf16985191341045 pf169862292377510 pf169862676368312" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/dashboard.xhtml" id="pf16985191341046" referenceLink="//@navigationRule.5/@navigationCase.0/@toViewId|" inlinks="pf16985191341045 pf169862292377510" path="/dashboard.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/blogs_edition.xhtml" id="pf169862676368313" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf169862676368312" path="/pages/blogs_edition.xhtml"/>
+  <links id="pf16985191341045" target="pf16985191341046" source="pf16985191341044" outcome="loginSuccess"/>
+  <links id="pf169862292377510" target="pf16985191341046" source="pf16985191341044" outcome="dashboard"/>
+  <links id="pf169862676368312" target="pf169862676368313" source="pf16985191341044" outcome="blogsEdit"/>
+</pageflow:Pageflow>

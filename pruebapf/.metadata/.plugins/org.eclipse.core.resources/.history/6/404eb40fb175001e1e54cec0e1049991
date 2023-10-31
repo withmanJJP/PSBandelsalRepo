@@ -1,0 +1,105 @@
+package models;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "readers")
+public class Readers implements Serializable{
+
+
+
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = -660975208905179197L;
+
+  @Column(name = "r_id")
+  private long rId;
+
+  @Column(name = "b_id")
+  private long bId;
+  
+  @Id
+  @ManyToOne
+  @JoinColumn(name = "R_ID")
+  private Readers readers;
+  
+  @Id
+  @ManyToOne
+  @JoinColumn(name = "B_ID")
+  private Blogs blogs;
+
+  
+
+
+public Readers() {
+	
+}
+
+
+
+
+public long getrId() {
+	return rId;
+}
+
+
+
+
+public void setrId(long rId) {
+	this.rId = rId;
+}
+
+
+
+
+public long getbId() {
+	return bId;
+}
+
+
+
+
+public void setbId(long bId) {
+	this.bId = bId;
+}
+
+
+
+
+public Readers getReaders() {
+	return readers;
+}
+
+
+
+
+public void setReaders(Readers readers) {
+	this.readers = readers;
+}
+
+
+
+
+public Blogs getBlogs() {
+	return blogs;
+}
+
+
+
+
+public void setBlogs(Blogs blogs) {
+	this.blogs = blogs;
+}
+
+
+
+
+}

@@ -1,0 +1,165 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pu="http://primefaces.org/ultima">
+
+
+	<!-- TOPBAR START -->
+	<div id="layout-topbar" class="layout-topbar">
+		<div class="layout-topbar-wrapper">
+			<!--     <h:form prependId="false"> -->
+
+			<!-- 			<a href="dashboard.xhtml" id="logo"> <h:graphicImage -->
+			<!-- 					url="/static/images/plantilla/logothewala.png" style="width:50px; height:50px; "/> -->
+			<!-- 			</a> -->
+
+			<div class="layout-topbar-left">
+				<h:link id="logolink" outcome="/dashboard"
+					styleClass="layout-topbar-logo">
+					<!--                     <p:graphicImage style="height: 60px !important;" name="images/#{ guestPreferences.lightLogo ? 'logo-ibss.png' : 'logo-ibss.png'}"  library="rain-layout" /> -->
+					<p:graphicImage style="height: 60px !important;" library="rain-layout" />
+
+				</h:link>
+			</div>
+
+
+			<div class="layout-topbar-right">
+				<div class="menu-button-wrapper">
+					<a href="#" class="menu-button">
+						<div class="menu-button-bars">
+							<span></span> <span></span> <span></span>
+						</div>
+						<div class="menu-button-times">
+							<span></span> <span></span>
+						</div>
+					</a>
+				</div>
+
+				<i> <!--         	<h:outputLabel value="#{msgRecurso.lbl_pages_login_bienvenido}"/> <h:outputLabel value="#{usuario.usuario}"/> (<h:outputLabel value="#{usuario.annoTrabajo}"/>)  -->
+				</i> <a id="show-top-menu" class="ShowOnMobile ripplelink"><i
+					class="icon-more_vert" id="active"></i><i
+					class="icon-close DispNone" id="passive"></i> </a> <strong> <h:outputLabel
+						value="#{usuario.nombreSede}" style="white-space: nowrap;" />
+				</strong>
+
+				<!--Mensaje topBar -->
+				<h:outputText id="mensaje-top-bar" styleClass="text_animation"
+					style="padding: #{idleMonitoMensajeTopBar.padding};"
+					value="#{idleMonitoMensajeTopBar.mensaje}" />
+
+
+				<p:idleMonitor id="idleMonitorMensajeTopBar" timeout="300000">
+					<p:ajax event="idle" listener="#{idleMonitoMensajeTopBar.onIdle}"
+						update="mensaje-top-bar" />
+					<p:ajax event="active"
+						listener="#{idleMonitoMensajeTopBar.onActive}"
+						update="mensaje-top-bar" />
+				</p:idleMonitor>
+
+				<!--Mensaje topBar -->
+
+				<ul id="top-menu" class="layout-topbar-actions">
+
+
+					<li class="search-item"><h:form id="formBusquedaPrincipal"
+							enctype="multipart/form-data" prependId="false">
+							<p:inputText size="20"
+								style="background-color: transparent; border-right:none; border-left:none; border-top:none; "
+								value="#{guestPreferences.otraVariableSearch}"
+								rendered="#{not usuario.usuario}"
+								onkeypress="onlyLetters(this);" onkeyup="onlyLetters(this);" />
+							<p:commandButton title="#{msgRecurso.tip_generalSearch}"
+								id="cmdGeneralSearch" rendered="#{not usuario.usuario}"
+								style="background-color: transparent; border:none;"
+								action="#{guestPreferences.getSearchInHCE()}"
+								icon="pi pi-search" ajax="true" update="dlgRta">
+							</p:commandButton>
+						</h:form></li>
+
+
+
+					<li class="topbar-item notifications"><a href="#"> <span
+							class="ui-overlay-badge"> <i
+								class="topbar-icon pi pi-user" style="font-size: 24px;"></i> <br></br>
+								<h:outputLabel value="#{usuario.usuario}" /> (<h:outputLabel
+									value="#{usuario.annoTrabajo}" />)
+						</span>
+
+					</a>
+						<ul>
+							<h:link id="cambioIdioma" rendered="false"
+								outcome="/pages/mtto/cambioidioma/cambioidioma.xhtml?faces-redirect=true">
+								<li class="layout-submenu-header"><i class="pi pi-flag"
+									style="font-size: 24px; color: white;"></i>
+									<h6 class="header-text">#{msgRecurso.cmd_cambio_idioma}</h6></li>
+							</h:link>
+
+							<h:link id="cambioClave"
+								outcome="/pages/mtto/cambiocontrasena/cambiocontrasena.xhtml?faces-redirect=true">
+								<li class="layout-submenu-header"><i class="pi pi-shield"
+									style="font-size: 24px; color: white;"></i>
+									<h6 class="header-text">#{msgRecurso.cmd_cambio_clave}</h6></li>
+							</h:link>
+							<h:link id="logout" outcome="/login.xhtml">
+								<li class="layout-submenu-header"><i
+									class="topbar-icon pi pi-key"
+									style="font-size: 24px; color: red;"></i>
+									<h6 style="color: red;" class="header-text">#{msgRecurso.cmd_salir}</h6>
+								</li>
+							</h:link>
+
+						</ul></li>
+
+				</ul>
+				<!--           <ul class="layout-topbar-actions"> -->
+				<!--           		<li class="topbar-item salir"> -->
+				<!--           			<a href="#"> -->
+				<!-- 	                        <span class="ui-overlay-badge"> -->
+				<!-- 					        	<i class="topbar-icon pi pi-power-off" style="font-size: 24px;"></i> -->
+				<!-- 					        </span> -->
+				<!--                         </a> -->
+				<!--                         <ul> -->
+				<!--                         	<h:link id="logout" href="/hce/" > -->
+				<!-- 	                            <li class="layout-submenu-header"> -->
+				<!-- 	                            	<i class="topbar-icon pi pi-key" style="font-size: 24px;color:red;"></i> -->
+				<!-- 	                           		<h6 style="color:red;" class="header-text">#{msgRecurso.cmd_salir}</h6> -->
+				<!-- 	                            </li> -->
+				<!--                             </h:link> -->
+				<!--                         </ul> -->
+
+				<!--           		</li> -->
+				<!--           </ul> -->
+
+			</div>
+
+			<!--       </h:form>   -->
+		</div>
+	</div>
+	<!-- TOPBAR END -->
+	<h:form id="formMttoGS" prependId="false">
+		<p:panel>
+			<p:dialog widgetVar="varRta" id="dlgRta" width="800" resizable="true"
+				draggable="true" dynamic="true"
+				style="top:200px; margin-left: 15%;margin-right: 15%; heigth: 100px !important;"
+				modal="true" closeOnEscape="true">
+				<h:panelGroup>
+					<ui:include src="/WEB-INF/modal_include_general_search.xhtml" />
+				</h:panelGroup>
+
+			</p:dialog>
+			<p:dialog id="general-dialog" showEffect="fade"
+				widgetVar="widget-general-dialog" resizable="false"
+				draggable="false" dynamic="true" modal="true" closeOnEscape="true"
+				style="margin-left: 15%;margin-right: 15%;"
+				styleClass="modalDashboard" responsive="true" header="">
+
+				<ui:fragment>
+					<ui:include src="#{guestPreferences.urlDialog}" />
+				</ui:fragment>
+			</p:dialog>
+		</p:panel>
+	</h:form>
+
+</ui:composition>

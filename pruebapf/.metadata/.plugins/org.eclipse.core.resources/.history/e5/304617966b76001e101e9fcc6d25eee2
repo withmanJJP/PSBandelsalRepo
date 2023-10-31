@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf16985189504560" configfile="/testpf/src/main/webapp/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="*" id="pf16985191341044" referenceLink="//@navigationRule.4/@fromViewId|" outlinks="pf16985191341045 pf16985868873640 pf16985869826392 pf16985913758894 pf16985914402916" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/dashboard.xhtml" id="pf16985191341046" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf16985191341045" path="/dashboard.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/blogs_edicion.xhtml" id="pf16985868873641" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf16985868873640" path="/pages/blogs_edicion.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/blogs_consulta.xhtml" id="pf16985869826393" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" inlinks="pf16985869826392" path="/pages/blogs_consulta.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/readers_edicion.xhtml" id="pf16985913758895" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" inlinks="pf16985913758894" path="/pages/readers_edicion.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/readers_consulta.xhtml" id="pf16985914402917" referenceLink="//@navigationRule.4/@navigationCase.0/@toViewId|" inlinks="pf16985914402916" path="/pages/readers_consulta.xhtml"/>
+  <links id="pf16985191341045" target="pf16985191341046" source="pf16985191341044" outcome="loginSuccess"/>
+  <links id="pf16985868873640" target="pf16985868873641" source="pf16985191341044" outcome="edicionBlogs"/>
+  <links id="pf16985869826392" target="pf16985869826393" source="pf16985191341044" outcome="consultaBlogs"/>
+  <links id="pf16985913758894" target="pf16985913758895" source="pf16985191341044" outcome="edicionReaders"/>
+  <links id="pf16985914402916" target="pf16985914402917" source="pf16985191341044" outcome="consultarReaders"/>
+</pageflow:Pageflow>

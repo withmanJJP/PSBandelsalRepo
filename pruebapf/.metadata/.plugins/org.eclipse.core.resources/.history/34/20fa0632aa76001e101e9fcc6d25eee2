@@ -1,0 +1,63 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>BANDELSAL</title>
+        <style>
+            /* Estilo para el fondo azul principal */
+           
+
+            /* Estilo para el fondo gris secundario */
+            .secondary-bg {
+                background-color: #999; /* Gris */
+                color: #000; /* Texto en negro */
+            }
+        </style>
+    </h:head>
+
+    <h:body>
+		<h:form id="formMttoExterno" prependId="false" style="text-align:start;">
+				<p:menu widgetVar="RainMenuWidget" toggleable="true">
+					<p:menuitem id="rm_dashboard"
+						value="#{msgRecurso.lbl_menu_dashboard}" icon="pi pi-home"
+						outcome="/dashboard" />
+					<p:submenu id="mtto" label="Mantenimientos"
+						icon="pi pi-cog">
+						<p:menuitem id="mtto_usuarios"
+							style="color:green;"
+							value="Blogs" icon="pi pi-book"
+							outcome="/pages/blogs/blogs.xhtml"></p:menuitem>
+					</p:submenu>
+				</p:menu>
+			</h:form>
+			
+        <div class="content secondary-bg">
+    <h:form id="myForm">
+
+        <h3>Blogs</h3>
+
+        <p:panelGrid columns="2">
+
+            <!-- Campo para el valor Long -->
+            <p:outputLabel for="longField" value="Valor Long:" />
+            <p:inputText id="longField" value="#{blogFormBean.object.id}" />
+
+            <!-- Campo para el primer String -->
+            <p:outputLabel for="string1" value="Primer String:" />
+            <p:inputText id="string1" value="#{blogFormBean.object.title}" />
+
+            <!-- Campo para el segundo String -->
+            <p:outputLabel for="string2" value="Segundo String:" />
+            <p:inputText id="string2" value="#{blogFormBean.object.description}" />
+        </p:panelGrid>
+
+        <!-- Botón para enviar el formulario -->
+        <p:commandButton value="Enviar" action="#{blogFormBean.actualizar}" update="myForm" />
+
+    </h:form>
+        </div>
+    </h:body>
+</ui:composition>

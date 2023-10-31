@@ -1,0 +1,377 @@
+package com.creandosoft.administrativo.publico.utils;
+
+/**
+ * @author jesus.rueda 19/06/2012 Creando Soluciones Informaticas LTDA creandosoft.com
+ */
+
+public final class ValoresConsecutivo {
+
+  public static final String USUARIO = "USUARIO";
+  public static final String TB_PERFIL = "TB_PERFIL";
+
+  public static final String TB_CATEGORIA_ACTIVO_FIJO = "TB_CATEGORIA_ACTIVO_FIJO";
+  public static final String TB_TIPO_IDENTIFICACION = "TB_TIPO_IDENTIFICACION";
+  public static final String TB_ESPECIALIDAD = "TB_ESPECIALIDAD";
+  public static final String TB_CONDICION_RIESGO_202_ESPECIALIDAD = "TB_CONDICION_RIESGO_202_ESPECIALIDAD";
+  public static final String TB_GRUPO_ESPECIALIDAD = "TB_GRUPO_ESPECIALIDAD";
+  public static final String TB_GRUPO_MEDICAMENTO = "TB_GRUPO_MEDICAMENTO";
+  public static final String TB_CIE10 = "TB_CIE10";
+  public static final String TB_CONDICION_RIESGO_202_CIE10 = "TB_CONDICION_RIESGO_202_CIE10";
+  public static final String TB_CUP = "TB_CUP";
+  public static final String TB_CUP_ATENCION_EDAD_DETALLE = "TB_CUP_ATENCION_EDAD_DETALLE";
+  public static final String TB_MARCA = "TB_MARCA";
+  public static final String TB_TIPO_INSUMO = "TB_TIPO_INSUMO";
+  public static final String TB_INSUMO = "TB_INSUMO";
+  public static final String TB_MEDICAMENTO = "TB_MEDICAMENTO";
+  public static final String TB_SOAT = "TB_SOAT";
+  public static final String TB_ISS = "TB_ISS";
+  public static final String TB_SERVICIO = "TB_SERVICIO";
+  public static final String TB_ASEGURADORA = "TB_ASEGURADORA";
+  public static final String TB_MEDICO = "TB_MEDICO";
+  public static final String TB_FESTIVO = "TB_FESTIVO";
+  public static final String TB_TIPO_CONSULTORIO = "TB_TIPO_CONSULTORIO";
+  public static final String TB_MECANISMO_VERIFICACION = "TB_MECANISMO_VERIFICACION";
+  public static final String TB_VALOR_COPAGO = "TB_VALOR_COPAGO";
+  public static final String TB_CUOTA_MODERADORA = "TB_CUOTA_MODERADORA";
+  public static final String TB_CUOTA_MODERADORA_DETALLE = "TB_CUOTA_MODERADORA_DETALLE";
+  public static final String CT_SUCURSAL = "CT_SUCURSAL";
+  public static final String CT_INFRAESTRUCTURA = "CT_INFRAESTRUCTURA";
+  public static final String SC_EMPRESA = "SC_EMPRESA";
+  public static final String CT_TURNO_MEDICO_ENCABEZADO = "CT_TURNO_MEDICO_ENCABEZADO";
+  public static final String TB_PAQUETE = "TB_PAQUETE";
+  public static final String CT_CONTRATO = "CT_CONTRATO";
+  public static final String CT_CONTRATO_ADENDO = "CT_CONTRATO_ADENDO";
+  public static final String CT_CONTRATO_ACTIVIDAD = "CT_CONTRATO_ACTIVIDAD";
+  public static final String CT_CONTRATO_HABILITADO_CUP = "CT_CONTRATO_HABILITADO_CUP";
+  public static final String CT_CONTRATO_INSUMO = "CT_CONTRATO_INSUMO";
+  public static final String CT_CONTRATO_MEDICAMENTO = "CT_CONTRATO_MEDICAMENTO";
+  public static final String LOG_CONTRATO = "LOG_CONTRATO";
+  public static final String TB_HORARIO_ENCABEZADO = "TB_HORARIO_ENCABEZADO";
+  public static final String CT_PROGRAMA_SERVICIO = "CT_PROGRAMA_SERVICIO";
+  public static final String CT_CITA = "CT_CITA";
+  public static final String CT_CITA_RECIBO = "CT_CITA_RECIBO";
+  public static final String LOG_CT_CITA = "LOG_CT_CITA";
+  public static final String TB_PERIODO = "TB_PERIODO";
+  public static final String TB_DISPONIBILIDAD = "TB_DISPONIBILIDAD";
+  public static final String ENLACE_CITA = "ENLACE_CITA";
+  public static final String TB_HCE_ENCABEZADO = "TB_HCE_ENCABEZADO";
+  public static final String TB_HCE_DETALLE = "TB_HCE_DETALLE";
+  public static final String TB_UNIDAD = "TB_UNIDAD";
+  public static final String TB_CONDICION_RIESGO_202 = "TB_CONDICION_RIESGO_202";
+  public static final String TB_POSOLOGIA = "TB_POSOLOGIA";
+  public static final String TB_LABORATORIO = "TB_LABORATORIO";
+  public static final String TB_EXAMEN_ENCABEZADO = "TB_EXAMEN_ENCABEZADO";
+  public static final String AT_HISTORIA_CLINICA_ENCABEZADO = "AT_HISTORIA_CLINICA_ENCABEZADO";
+  public static final String AT_HISTORIA_CLINICA_REGISTRO = "AT_HISTORIA_CLINICA_REGISTRO";
+  public static final String AT_HISTORIA_CLINICA_DATO = "AT_HISTORIA_CLINICA_DATO";
+  public static final String AT_HISTORIA_CLINICA_DIAGNOSTICO = "AT_HISTORIA_CLINICA_DIAGNOSTICO";
+  public static final String AT_HISTORIA_CLINICA_MEDICAMENTO = "AT_HISTORIA_CLINICA_MEDICAMENTO";
+  public static final String AT_HISTORIA_CLINICA_PROCEDIMIENTO = "AT_HISTORIA_CLINICA_PROCEDIMIENTO";
+  public static final String AT_HISTORIA_CLINICA_ODONTROGRAMA = "AT_HISTORIA_CLINICA_ODONTOGRAMA";
+  public static final String AT_HISTORIA_CLINICA_ODONTOLOGIA = "AT_HISTORIA_CLINICA_ODONTOLOGIA";
+  public static final String CT_CONTRATO_PERIODO = "CT_CONTRATO_PERIODO";
+  public static final String CT_CONTRATO_RIPS = "CT_CONTRATO_RIPS";
+  public static final String CT_CONTRATO_IPS_RIPS_AC = "CT_CONTRATO_IPS_RIPS_AC";
+  public static final String CT_CONTRATO_IPS_RIPS_AD = "CT_CONTRATO_IPS_RIPS_AD";
+  public static final String CT_CONTRATO_IPS_RIPS_AF = "CT_CONTRATO_IPS_RIPS_AF";
+  public static final String CT_CONTRATO_IPS_RIPS_AH = "CT_CONTRATO_IPS_RIPS_AH";
+  public static final String CT_CONTRATO_IPS_RIPS_AM = "CT_CONTRATO_IPS_RIPS_AM";
+  public static final String CT_CONTRATO_IPS_RIPS_AN = "CT_CONTRATO_IPS_RIPS_AN";
+  public static final String CT_CONTRATO_IPS_RIPS_AP = "CT_CONTRATO_IPS_RIPS_AP";
+  public static final String CT_CONTRATO_IPS_RIPS_AT = "CT_CONTRATO_IPS_RIPS_AT";
+  public static final String CT_CONTRATO_IPS_RIPS_AU = "CT_CONTRATO_IPS_RIPS_AU";
+  public static final String CT_CONTRATO_IPS_RIPS_CT = "CT_CONTRATO_IPS_RIPS_CT";
+  public static final String CT_CONTRATO_IPS_RIPS_US = "CT_CONTRATO_IPS_RIPS_US";
+  public static final String TB_SIVIGILA_SEMANA = "TB_SIVIGILA_SEMANA";
+  public static final String TB_SIVIGILA_EVENTO_VIGILANCIA = "TB_SIVIGILA_EVENTO_VIGILANCIA";
+  public static final String TB_SIVIGILA_EVENTO_VIGILANCIA_CIE = "TB_SIVIGILA_EVENTO_VIGILANCIA_CIE";
+
+  public static final String SC_ACTIVO_FIJO_DETALLE = "SC_ACTIVO_FIJO_DETALLE";
+  public static final String SC_ACTIVO_FIJO_ENCABEZADO = "SC_ACTIVO_FIJO_ENCABEZADO";
+  public static final String SC_CUENTA = "SC_CUENTA";
+  public static final String SC_TERCERO = "SC_TERCERO";
+  public static final String SC_VALOR_IVA = "SC_VALOR_IVA";
+  public static final String SC_VALOR_RETEFUENTE = "SC_VALOR_RETEFUENTE";
+  public static final String SC_VALOR_RETEICA = "SC_VALOR_RETEICA";
+  public static final String SC_SALARIO_MINIMO = "SC_SALARIO_MINIMO";
+  public static final String SC_CENTRO_COSTO = "SC_CENTRO_COSTO";
+  public static final String SC_FORMA_PAGO = "SC_FORMA_PAGO";
+  public static final String SC_JORNADA_LABORAL = "SC_JORNADA_LABORAL";
+  public static final String SC_TIPO_COTIZANTE = "SC_TIPO_COTIZANTE";
+  public static final String SC_CARGO = "SC_CARGO";
+  public static final String SC_CONFIGURACION_SALARIAL = "SC_CONFIGURACION_SALARIAL";
+  public static final String SC_EXTRA_LABORAL = "SC_EXTRA_LABORAL";
+  public static final String SC_PROFESION = "SC_PROFESION";
+  public static final String SC_FONDO = "SC_FONDO";
+  public static final String SC_EMPLEADO = "SC_EMPLEADO";
+  public static final String SC_CONTRATO_EMPLEADO = "SC_CONTRATO_EMPLEADO";
+  public static final String SC_PRESTAMO_EMPLEADO_ENCABEZADO = "SC_PRESTAMO_EMPLEADO_ENCABEZADO";
+  public static final String SC_PRESTAMO_EMPLEADO_DETALLE = "SC_PRESTAMO_EMPLEADO_DETALLE";
+  public static final String SC_CONCEPTO_EMPLEADO = "SC_CONCEPTO_EMPLEADO";
+  public static final String SC_EMPLEADO_VACACION_ENCABEZADO = "SC_EMPLEADO_VACACION_ENCABEZADO";
+  public static final String SC_PRODUCTO = "SC_PRODUCTO";
+  public static final String SC_UVT = "SC_UVT";
+  public static final String SC_RETENCION_SALARIO = "SC_RETENCION_SALARIO";
+  public static final String SC_TIPO_FACTURA = "SC_TIPO_FACTURA";
+  public static final String SC_FACTURA_ENCABEZADO = "SC_FACTURA_ENCABEZADO";
+  public static final String SC_FACTURA_ENCABEZADO_RELACIONADO = "SC_FACTURA_ENCABEZADO_RELACIONADO";
+
+  public static final String SC_PRODUCTO_CUENTA = "SC_PRODUCTO_CUENTA";
+  public static final String SC_PRODUCTO_CENTRO_COSTO = "SC_PRODUCTO_CENTRO_COSTO";
+
+  public static final String SC_RECIBO_ENCABEZADO = "SC_RECIBO_ENCABEZADO";
+  public static final String SC_RECIBO_CAJA = "SC_RECIBO_CAJA";
+  public static final String SC_RECIBO_PAGO = "SC_RECIBO_PAGO";
+  public static final String SC_NOTA_CREDITO = "SC_NOTA_CREDITO";
+  public static final String SC_NOTA_CONTABILIDAD = "SC_NOTA_CONTABILIDAD";
+  public static final String SC_OTROS_INGRESOS = "SC_OTROS_INGRESOS";
+  public static final String SC_SALDO_ENCABEZADO = "SC_SALDO_ENCABEZADO";
+  public static final String SC_LIQUIDACION_NOMINA_ENCABEZADO = "SC_LIQUIDACION_NOMINA_ENCABEZADO";
+  public static final String SC_LIQUIDACION_APORTE_ENCABEZADO = "SC_LIQUIDACION_APORTE_ENCABEZADO";
+  public static final String SC_FACTURA_GLOSA_ENCABEZADO = "SC_FACTURA_GLOSA_ENCABEZADO";
+  public static final String SC_CESANTIAS_PAGO = "SC_CESANTIAS_PAGO";
+  public static final String LOG_SC_FACTURA_ESTADO = "LOG_SC_FACTURA_ESTADO";
+
+  public static final String CT_PACIENTE = "CT_PACIENTE";
+  public static final String CT_PACIENTE_LOG = "CT_PACIENTE_LOG";
+
+  public static final String TB_INDICE = "TB_INDICE";
+  public static final String TB_INDICE_EXPRESION = "TB_INDICE_EXPRESION";
+  public static final String TB_MODULO = "TB_MODULO";
+  public static final String TB_SUBMODULO = "TB_SUBMODULO";
+  public static final String TB_SECCION = "TB_SECCION";
+  public static final String TB_CONJUNTO_ENCABEZADO = "TB_CONJUNTO_ENCABEZADO";
+  public static final String TB_CONJUNTO_DETALLE = "TB_CONJUNTO_DETALLE";
+
+  public static final String AT_HISTORIA_CLINICA_CHAT = "AT_HISTORIA_CLINICA_CHAT";
+  public static final String AT_HISTORIA_CLINICA_PROCEDIMIENTO_RESULTADO = "AT_HISTORIA_CLINICA_PROCEDIMIENTO_RESULTADO";
+  public static final String TB_TIPO_SOPORTE = "TB_TIPO_SOPORTE";
+  public static final String TB_SOPORTE_ENCABEZADO = "TB_SOPORTE_ENCABEZADO";
+  public static final String TB_SOPORTE_DETALLE = "TB_SOPORTE_DETALLE";
+  public static final String AT_HISTORIA_CLINICA_ARCHIVO = "AT_HISTORIA_CLINICA_ARCHIVO";
+  public static final String TB_GLOSA = "TB_GLOSA";
+  public static final String TB_GLOSA_CUENTA = "TB_GLOSA_CUENTA";
+
+  public static final String TRANSFERENCIA_NOMINA = "TRANSFERENCIA_NOMINA";
+  public static final String EGRESO_BANCO = "EGRESO_BANCO";
+  public static final String EGRESO_CAJA = "EGRESO_CAJA";
+  public static final String VARIOS_CONTABLES = "VARIOS_CONTABLES";
+
+  public static final String CONSECUTIVO_NOTA_CREDITO = "CONSECUTIVO_NOTA_CREDITO";
+  public static final String CONSECUTIVO_NOTA_DEBITO = "CONSECUTIVO_NOTA_DEBITO";
+
+  public static final String CT_PACIENTE_ENCUESTA_ENCABEZADO = "CT_PACIENTE_ENCUESTA_ENCABEZADO";
+  public static final String CT_PACIENTE_ENCUESTA_DETALLE = "CT_PACIENTE_ENCUESTA_DETALLE";
+
+  public static final String TB_ETNIA = "TB_ETNIA";
+  public static final String TB_NIVEL_EDUCATIVO = "TB_NIVEL_EDUCATIVO";
+  public static final String TB_OCUPACION = "TB_OCUPACION";
+
+  public static final String CT_PACIENTE_RIESGO_202 = "CT_PACIENTE_RIESGO_202";
+  public static final String TB_PERIODO_RIESGO = "TB_PERIODO_RIESGO";
+
+  public static final String AT_HISTORIA_CLINICA_RIESGO_202_DATO = "AT_HISTORIA_CLINICA_RIESGO_202_DATO";
+  public static final String TB_CONDICION_RIESGO_202_CONDICION_VARIABLE = "TB_CONDICION_RIESGO_202_CONDICION_VARIABLE";
+
+  public static final String TB_RUTA_ATENCION = "TB_RUTA_ATENCION";
+  public static final String TB_RUTA_ATENCION_PROCEDIMIENTO = "TB_RUTA_ATENCION_PROCEDIMIENTO";
+  public static final String TB_RUTA_ATENCION_MEDICAMENTO = "TB_RUTA_ATENCION_MEDICAMENTO";
+
+  public static final String CT_PACIENTE_RUTA_ATENCION = "CT_PACIENTE_RUTA_ATENCION";
+  public static final String CT_PACIENTE_RUTA_ATENCION_DETALLE = "CT_PACIENTE_RUTA_ATENCION_DETALLE";
+
+  public static final String CT_PACIENTE_RUTA_ATENCION_DETALLE_LOG = "CT_PACIENTE_RUTA_ATENCION_DETALLE_LOG";
+
+  public static final String TB_TIPO_AFILIACION = "TB_TIPO_AFILIACION";
+  public static final String SC_PRESTAMO_EMPLEADO_PAGO = "SC_PRESTAMO_EMPLEADO_PAGO";
+
+  public static final String SC_RECEPCION_ENCABEZADO = "SC_RECEPCION_ENCABEZADO";
+  public static final String SC_RECEPCION_DETALLE = "SC_RECEPCION_DETALLE";
+  public static final String SC_RECEPCION_AJUSTE = "SC_RECEPCION_AJUSTE";
+
+  public static final String NUMERO_RECEPCION = "NUMERO_RECEPCION";
+
+  public static final String TB_CONCEPTO_NOMINA = "TB_CONCEPTO_NOMINA";
+  public static final String USUARIO_SEDE = "USUARIO_SEDE";
+  public static final String TB_MEDICO_SEDE = "TB_MEDICO_SEDE";
+  public static final String TB_PERSONAL_MEDICO = "TB_PERSONAL_MEDICO";
+
+  public static final String TB_TIPO_INGRESO = "TB_TIPO_INGRESO";
+  public static final String TB_TIPO_GASTO = "TB_TIPO_GASTO";
+  public static final String PRB_PRESUPUESTO_ENCABEZADO = "PRB_PRESUPUESTO_ENCABEZADO";
+  public static final String TB_TIPO_RECURSO = "TB_TIPO_RECURSO";
+  public static final String PRB_ESTRUCTURA = "PRB_ESTRUCTURA";
+  public static final String TB_NIVEL_PRESUPUESTO = "TB_NIVEL_PRESUPUESTO";
+  public static final String PRB_CONCEPTO = "PRB_CONCEPTO";
+  public static final String PRB_PRESUPUESTO_DETALLE = "PRB_PRESUPUESTO_DETALLE";
+  public static final String PRB_RESOLUCION_ENCABEZADO = "PRB_RESOLUCION_ENCABEZADO";
+  public static final String PRB_RESOLUCION_DETALLE = "PRB_RESOLUCION_DETALLE";
+  public static final String PRB_DEPENDENCIA = "PRB_DEPENDENCIA";
+  public static final String PRB_CDP_ENCABEZADO = "PRB_CDP_ENCABEZADO";
+  public static final String PRB_CDP_DETALLE = "PRB_CDP_DETALLE";
+  public static final String PRB_RP_ENCABEZADO = "PRB_RP_ENCABEZADO";
+  public static final String PRB_RP_DETALLE = "PRB_RP_DETALLE";
+  public static final String PRB_RESOLUCION_CDP = "PRB_RESOLUCION_CDP";
+  public static final String TB_PROCESO_ADMINISTRATIVO_ENCABEZADO = "TB_PROCESO_ADMINISTRATIVO_ENCABEZADO";
+  public static final String TB_PROCESO_ADMINISTRATIVO_DETALLE = "TB_PROCESO_ADMINISTRATIVO_DETALLE";
+  public static final String PRB_RESOLUCION_LOG = "PRB_RESOLUCION_LOG";
+  public static final String SC_NOTA_CONTABILIDAD_DOCUMENTO_EQUIVALENTE_NUMERO = "SC_NOTA_CONTABILIDAD_DOCUMENTO_EQUIVALENTE_NUMERO";
+  public static final String AF_REGISTRO_SIAU = "AF_REGISTRO_SIAU";
+  public static final String TB_NIVEL = "TB_NIVEL";
+  public static final String TB_TIPO_APORTANTE = "TB_TIPO_APORTANTE";
+  public static final String AF_APORTANTE = "AF_APORTANTE";
+  public static final String LI_LICENCIA = "LI_LICENCIA";
+  public static final String SC_ANTICIPO_ENCABEZADO = "SC_ANTICIPO_ENCABEZADO";
+  public static final String SC_ANTICIPO_DETALLE = "SC_ANTICIPO_DETALLE";
+
+  public static final String EP_ESTUDIO_PREVIO_CESION = "EP_ESTUDIO_PREVIO_CESION";
+  public static final String EP_ESTUDIO_PREVIO_ENCABEZADO = "EP_ESTUDIO_PREVIO_ENCABEZADO";
+  public static final String EP_PRE_ESTUDIO = "EP_PRE_ESTUDIO";
+  public static final String SC_NOTA_CONTABILIDAD_CIERRE_CONTABLE = "SC_NOTA_CONTABILIDAD_CIERRE_CONTABLE";
+  public static final String EP_PRE_ESTUDIO_TIPO_ORDEN_SERVICIO = "EP_PRE_ESTUDIO_TIPO_ORDEN_SERVICIO";
+  public static final String EP_PRE_ESTUDIO_TIPO_ORDEN_PAGO = "EP_PRE_ESTUDIO_TIPO_ORDEN_PAGO";
+  public static final String EP_PRE_ESTUDIO_TIPO_OFERTA_MERCANTIL = "EP_PRE_ESTUDIO_TIPO_OFERTA_MERCANTIL";
+  public static final String EP_ESTUDIO_PREVIO_PRORROGA = "EP_ESTUDIO_PREVIO_PRORROGA";
+
+  public static final String LOG_RP_DETALLE = "LOG_RP_DETALLE";
+  public static final String SC_NOTA_CONTABILIDAD_SALDO_INICIAL = "SC_NOTA_CONTABILIDAD_SALDO_INICIAL";
+  public static final String SC_NOTA_CONTABILIDAD_AUTORIZACION = "SC_NOTA_CONTABILIDAD_AUTORIZACION";
+  public static final String SC_NOTA_CONTABILIDAD_RADICACION = "SC_NOTA_CONTABILIDAD_RADICACION";
+  public static final String SC_NOTA_CONTABILIDAD_AUDITORIA = "SC_NOTA_CONTABILIDAD_AUDITORIA";
+  public static final String SC_NOTA_CONTABILIDAD_GLOSA = "SC_NOTA_CONTABILIDAD_GLOSA";
+  public static final String SC_NOTA_CONTABILIDAD_FACTURAS_COMPRA = "SC_NOTA_CONTABILIDAD_FACTURAS_COMPRA";
+  public static final String SC_NOTA_CONTABILIDAD_PAGOS = "SC_NOTA_CONTABILIDAD_PAGOS";
+  public static final String SC_NOTA_CONTABILIDAD_DISPONIBLES = "SC_NOTA_CONTABILIDAD_DISPONIBLES";
+  public static final String SC_NOTA_CONTABILIDAD_CUENTAS_X_COBRAR = "SC_NOTA_CONTABILIDAD_CUENTAS_X_COBRAR";
+  public static final String SC_NOTA_CONTABILIDAD_ANULACION_AUTORIZACION = "SC_NOTA_CONTABILIDAD_ANULACION_AUTORIZACION";
+  public static final String SC_NOTA_CONTABILIDAD_NOTA = "SC_NOTA_CONTABILIDAD_NOTA";
+  public static final String SC_NOTA_CONTABILIDAD_CAUSACION = "SC_NOTA_CONTABILIDAD_CAUSACION";
+  public static final String SC_NOTA_CONTABILIDAD_CREDITO_BANCARIAS = "SC_NOTA_CONTABILIDAD_CREDITO_BANCARIAS";
+  public static final String SC_NOTA_CONTABILIDAD_DEBITO_BANCARIAS = "SC_NOTA_CONTABILIDAD_DEBITO_BANCARIAS";
+  public static final String SC_NOTA_CONTABILIDAD_RECIBO_CAJA = "SC_NOTA_CONTABILIDAD_RECIBO_CAJA";
+  public static final String SC_NOTA_CONTABILIDAD_DISPONIBLE_TRASLADO = "SC_NOTA_CONTABILIDAD_DISPONIBLE_TRASLADO";
+  public static final String SC_NOTA_CONTABILIDAD_CIERRE_MES = "SC_NOTA_CONTABILIDAD_CIERRE_MES";
+  public static final String SC_NOTA_CONTABILIDAD_INTERNA = "SC_NOTA_CONTABILIDAD_INTERNA";
+  public static final String SC_NOTA_CONTABILIDAD_GIRO_DIRECTO = "SC_NOTA_CONTABILIDAD_GIRO_DIRECTO";
+  public static final String SC_NOTA_CONTABILIDAD_DOCUMENTO_EQUIVALENTE = "SC_NOTA_CONTABILIDAD_DOCUMENTO_EQUIVALENTE";
+  public static final String SC_NOTA_CONTABILIDAD_INCAPACIDAD = "SC_NOTA_CONTABILIDAD_INCAPACIDAD";
+  public static final String SC_NOTA_CONTABILIDAD_PAGOS_GIRO = "SC_NOTA_CONTABILIDAD_PAGOS_GIRO";
+  public static final String SC_NOTA_CONTABILIDAD_PRE_FACTURA = "SC_NOTA_CONTABILIDAD_PRE_FACTURA";
+  public static final String SC_NOTA_CONTABILIDAD_MOVIMIENTO = "SC_NOTA_CONTABILIDAD_MOVIMIENTO";
+  public static final String SC_NOTA_CONTABILIDAD_LEGALIZACION_FACTURA = "SC_NOTA_CONTABILIDAD_LEGALIZACION_FACTURA";
+  public static final String SC_NOTA_CONTABILIDAD_ENTRADA_ALMACEN = "SC_NOTA_CONTABILIDAD_ENTRADA_ALMACEN";
+  public static final String SC_NOTA_CONTABILIDAD_DEPRECIACION = "SC_NOTA_CONTABILIDAD_DEPRECIACION";
+  public static final String SC_NOTA_CONTABILIDAD_AUDITORIA_DEVOLUCION = "SC_NOTA_CONTABILIDAD_AUDITORIA_DEVOLUCION";
+  public static final String SC_NOTA_CONTABILIDAD_VENTA = "SC_NOTA_CONTABILIDAD_VENTA";
+  public static final String SC_LIQUIDACION_NOMINA_ENCABEZADO_CDP = "SC_LIQUIDACION_NOMINA_ENCABEZADO_CDP";
+
+  public static final String LOG_PRB_PRESUPUESTO_DETALLE = "LOG_PRB_PRESUPUESTO_DETALLE";
+  public static final String PRB_ENTIDAD = "PRB_ENTIDAD";
+
+  public static final String NUMERO_RP = "NUMERO_RP";
+  public static final String NUMERO_CDP = "NUMERO_CDP";
+  public static final String EP_PRE_ESTUDIO_PREVIO_CDP = "EP_PRE_ESTUDIO_PREVIO_CDP";
+  public static final String EP_ESTUDIO_PREVIO_CESION_CDP = "EP_ESTUDIO_PREVIO_CESION_CDP";
+  public static final String EP_ESTUDIO_PREVIO_PRORROGA_CDP = "EP_ESTUDIO_PREVIO_PRORROGA_CDP";
+  public static final String ADM_CONTRATO = "ADM_CONTRATO";
+  public static final String SC_DISPONIBLE = "SC_DISPONIBLE";
+  public static final String TB_BANCO = "TB_BANCO";
+  public static final String TB_PREFERENCIA = "TB_PREFERENCIA";
+  public static final String SC_DISPONIBLE_MOVIMIENTO = "SC_DISPONIBLE_MOVIMIENTO";
+  public static final String CT_CONTRATO_SEDE = "CT_CONTRATO_SEDE";
+
+  public static final String TB_FINALIDAD = "TB_FINALIDAD";
+  public static final String TB_CIE10_DETALLE = "TB_CIE10_DETALLE";
+
+  public static final String RE_API = "RE_API";
+  public static final String TB_MODULO_REPORTE = "TB_MODULO_REPORTE";
+  public static final String RE_REPORTE_ENCABEZADO = "RE_REPORTE_ENCABEZADO";
+  public static final String RE_REPORTE_DETALLE = "RE_REPORTE_DETALLE";
+  public static final String CT_REMISION = "CT_REMISION";
+  public static final String CT_ORDEN = "CT_ORDEN";
+  public static final String CT_INCAPACIDAD = "CT_INCAPACIDAD";
+  public static final String TB_HCE_TIPO_HISTORIA = "TB_HCE_TIPO_HISTORIA";
+
+  public static final String SC_CONTRATO_EMPLEADO_ESTADO = "SC_CONTRATO_EMPLEADO_ESTADO";
+  public static final String SC_CONTRATO_EMPLEADO_DISPERSION = "SC_CONTRATO_EMPLEADO_DISPERSION";
+
+  public static final String SC_EMPLEADO_COSTO_ENCABEZADO = "SC_EMPLEADO_COSTO_ENCABEZADO";
+  public static final String SC_EMPLEADO_COSTO_DETALLE = "SC_EMPLEADO_COSTO_DETALLE";
+
+  public static final String SC_EMPLEADO_COSTO_CUENTA = "SC_EMPLEADO_COSTO_CUENTA";
+
+  public static final String NE_LIQUIDACION_NOMINA_DETALLE = "NE_LIQUIDACION_NOMINA_DETALLE";
+  public static final String NE_LIQUIDACION_NOMINA_DETALLE_TRANSPORTE = "NE_LIQUIDACION_NOMINA_DETALLE_TRANSPORTE";
+  public static final String NE_LIQUIDACION_NOMINA_DETALLE_HORA = "NE_LIQUIDACION_NOMINA_DETALLE_HORA";
+  public static final String NE_LIQUIDACION_NOMINA_DETALLE_DEDUCIDO = "NE_LIQUIDACION_NOMINA_DETALLE_DEDUCIDO";
+  public static final String NE_LIQUIDACION_NOMINA_DETALLE_OTRO_DEDUCIDO = "NE_LIQUIDACION_NOMINA_DETALLE_OTRO_DEDUCIDO";
+
+  public static final String SC_LIQUIDACION_NOMINA_BASE = "SC_LIQUIDACION_NOMINA_BASE";
+  public static final String CT_PROGRAMA_SERVICIO_SEDE = "CT_PROGRAMA_SERVICIO_SEDE";
+
+  public static final String SC_NOTA_CONTABILIDAD_CONTABLE_CUENTAS_X_COBRAR = "SC_NOTA_CONTABILIDAD_CONTABLE_CUENTAS_X_COBRAR";
+
+  public static final String PRB_RP_DETALLE_MOVIMIENTO = "PRB_RP_DETALLE_MOVIMIENTO";
+
+  public static final String TB_TOPE_MEDIO_MAGNETICO = "TB_TOPE_MEDIO_MAGNETICO";
+  public static final String TB_FORMATO_MEDIO_MAGNETICO_ENCABEZADO = "TB_FORMATO_MEDIO_MAGNETICO_ENCABEZADO";
+  public static final String TB_FORMATO_MEDIO_MAGNETICO_DETALLE = "TB_FORMATO_MEDIO_MAGNETICO_DETALLE";
+
+  public static final String SC_ACTIVO_FIJO_ALMACEN_ENCABEZADO = "SC_ACTIVO_FIJO_ALMACEN_ENCABEZADO";
+  public static final String SC_ACTIVO_FIJO_ALMACEN_DETALLE = "SC_ACTIVO_FIJO_ALMACEN_DETALLE";
+  public static final String SC_ACTIVO_FIJO_ALMACEN_RESPONSABLE = "SC_ACTIVO_FIJO_ALMACEN_RESPONSABLE";
+  public static final String SC_ACTIVO_FIJO_ALMACEN_CONSUMIBLE = "SC_ACTIVO_FIJO_ALMACEN_CONSUMIBLE";
+
+  public static final String TB_BODEGA = "TB_BODEGA";
+  public static final String SC_ACTIVO_FIJO_ARTICULO = "SC_ACTIVO_FIJO_ARTICULO";
+
+  public static final String SC_ACTIVO_FIJO_TRASLADO = "SC_ACTIVO_FIJO_TRASLADO";
+  public static final String SC_ACTIVO_FIJO_NOVEDAD = "SC_ACTIVO_FIJO_NOVEDAD";
+
+  public static final String PRB_DEPENDENCIA_RESPONSABLE = "PRB_DEPENDENCIA_RESPONSABLE";
+
+  public static final String PV_PROVEEDOR_ENCABEZADO = "PV_PROVEEDOR_ENCABEZADO";
+  public static final String PV_PROVEEDOR_USUARIO = "PV_PROVEEDOR_USUARIO";
+
+  public static final String TB_ACTIVIDAD_ECONOMICA = "TB_ACTIVIDAD_ECONOMICA";
+
+  public static final String TB_ENCUESTA_PROVEEDOR_ENCABEZADO = "TB_ENCUESTA_PROVEEDOR_ENCABEZADO";
+  public static final String TB_ENCUESTA_PROVEEDOR_DETALLE = "TB_ENCUESTA_PROVEEDOR_DETALLE";
+
+  public static final String TB_ENCUESTA_ENCABEZADO = "TB_ENCUESTA_ENCABEZADO";
+  public static final String TB_ENCUESTA_DETALLE = "TB_ENCUESTA_DETALLE";
+
+  public static final String PV_ENCUESTA_APLICADA_ENCABEZADO = "PV_ENCUESTA_APLICADA_ENCABEZADO";
+  public static final String PV_ENCUESTA_APLICA_PROVEEDOR = "PV_ENCUESTA_APLICA_PROVEEDOR";
+  public static final String PV_ENCUESTA_APLICADA_RESULTADO = "PV_ENCUESTA_APLICA_PROVEEDOR";
+  public static final String SC_DISPONIBLE_TRASLADO = "SC_DISPONIBLE_TRASLADO";
+
+  public static final String RE_REPORTE_220 = "RE_REPORTE_220";
+  public static final String LOG_SC_FACTURA_PAGO_DETALLADO = "LOG_SC_FACTURA_PAGO_DETALLADO";
+  public static final String RE_GESTION_CARTERA_ENCABEZADO = "RE_GESTION_CARTERA_ENCABEZADO";
+  public static final String SC_CONCEPTO_MOVIMIENTO_ENCABEZADO = "SC_CONCEPTO_MOVIMIENTO_ENCABEZADO";
+  public static final String SC_CONCEPTO_MOVIMIENTO_DETALLE = "SC_CONCEPTO_MOVIMIENTO_DETALLE";
+  public static final String SC_CUENTA_X_COBRAR_ENCABEZADO = "SC_CUENTA_X_COBRAR_ENCABEZADO";
+  public static final String SC_CUENTA_X_COBRAR_ARCHIVO = "SC_CUENTA_X_COBRAR_ARCHIVO";
+  public static final String SC_CUENTA_X_COBRAR_DETALLE = "SC_CUENTA_X_COBRAR_DETALLE";
+  
+  public static final String SC_CUENTA_X_COBRAR_PROCESO_CXC = "SC_CUENTA_X_COBRAR_PROCESO_CXC";
+  public static final String SC_CUENTA_X_COBRAR_PROCESO_CCLMARS = "SC_CUENTA_X_COBRAR_PROCESO_CCLMARS";
+  public static final String SC_CUENTA_X_COBRAR_PROCESO_NCRB = "SC_CUENTA_X_COBRAR_PROCESO_NCRB";
+  public static final String SC_CUENTA_X_COBRAR_PROCESO_NDBB = "SC_CUENTA_X_COBRAR_PROCESO_NDBB";
+  public static final String SC_CUENTA_X_COBRAR_PROCESO_RC = "SC_CUENTA_X_COBRAR_PROCESO_RC";
+  public static final String SC_CUENTA_X_COBRAR_PROCESO_RCCC = "SC_CUENTA_X_COBRAR_PROCESO_RCCC";
+  public static final String SC_CUENTA_X_COBRAR_PROCESO_CXCC = "SC_CUENTA_X_COBRAR_PROCESO_CXCC";
+  public static final String SC_CUENTA_X_COBRAR_PROCESO_NCCC = "SC_CUENTA_X_COBRAR_PROCESO_NCCC";
+  public static final String PRB_PRESUPUESTO_DETALLE_MOVIMIENTO = "PRB_PRESUPUESTO_DETALLE_MOVIMIENTO";
+  public static final String TB_ORGANIZACION_INDIGENA = "TB_ORGANIZACION_INDIGENA";
+  public static final String TB_TIPO_RESGUARDO = "TB_TIPO_RESGUARDO";
+  public static final String TB_RESGUARDO_INDIGENA = "TB_RESGUARDO_INDIGENA";
+  public static final String TB_COMUNIDAD_INDIGENA = "TB_COMUNIDAD_INDIGENA";
+  
+  
+
+  private ValoresConsecutivo() {
+
+  }
+}

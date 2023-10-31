@@ -1,0 +1,178 @@
+package beans;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+
+import javax.ejb.EJB;
+import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
+
+import dto.BlogsDto;
+import services.BlogsImplServices;
+
+@Named
+@RequestScoped
+public class BlogModelFormBean implements Serializable  {
+
+    private static final long serialVersionUID = 1376319740144826761L;
+
+    @Inject
+    private BlogsImplServices blogsImplServices;
+
+    private BlogsDto objectQ;
+
+    private BlogsDto object;
+
+    private ArrayList<BlogsDto> blogs;
+    
+    public BlogModelFormBean() {
+    	objectQ = new BlogsDto();
+    	object = new BlogsDto();
+    }
+    
+    
+    
+    public BlogsImplServices getBlogsImplServices() {
+		return blogsImplServices;
+	}
+
+
+
+
+
+
+	public void setBlogsImplServices(BlogsImplServices blogsImplServices) {
+		this.blogsImplServices = blogsImplServices;
+	}
+
+
+
+
+
+
+	public BlogsDto getObjectQ() {
+		return objectQ;
+	}
+
+
+
+
+
+
+	public void setObjectQ(BlogsDto objectQ) {
+		this.objectQ = objectQ;
+	}
+
+
+
+
+
+
+	public BlogsDto getObject() {
+		return object;
+	}
+
+
+
+
+
+
+	public void setObject(BlogsDto object) {
+		this.object = object;
+	}
+
+
+
+
+
+
+	public ArrayList<BlogsDto> getBlogs() {
+		return blogs;
+	}
+
+
+
+
+
+
+	public void setBlogs(ArrayList<BlogsDto> blogs) {
+		this.blogs = blogs;
+	}
+
+
+
+
+
+
+	public String buscarBlogs() {
+        try {
+            this.blogs = (ArrayList<BlogsDto>) blogsImplServices.getBlogsDto(objectQ);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public String enviarEditar(Long id) {
+        try {
+            this.object = id != null ? this.blogs.stream()
+                    .filter(blog -> blog.getId() == id)
+                    .findFirst()
+                    .orElse(null)
+                    : new BlogsDto();
+
+            return "editarBlog";
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public String regresarConsulta() {
+        try {
+            return "consultarBlog";
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public String actualizarBlog() {
+        try {
+            if(this.object.getId() > 0){
+            	//blogsImplServices.updateBlog(this.object);
+            }
+            else {
+                //dao.createBlogReader();
+            	//blogsImplServices.createBlog(this.object);
+            }
+
+            this.buscarBlogs();
+            return regresarConsulta();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public String borrarBlog(Long id) {
+        try {
+            //dao.deleteBlog(id);
+
+            this.buscarBlogs();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public void limpiarForm() {
+        this.objectQ = new BlogsDto();
+        this.blogs = new ArrayList<>();
+    }
+
+
+    
+}

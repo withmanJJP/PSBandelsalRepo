@@ -1,0 +1,20 @@
+package models;
+
+import java.io.Serializable;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "blogs")
+public class Blogs implements Serializable{
+
+private static final long serialVersionUID = -7048138235070466856L;
+@Id
+@Column(name="consecutivo_marca")
+private long consecutivoMarca;
+
+public Blogs() {
+	
+	}
+
+}

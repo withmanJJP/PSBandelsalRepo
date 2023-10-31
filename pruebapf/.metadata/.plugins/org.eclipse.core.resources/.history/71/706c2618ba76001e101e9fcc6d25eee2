@@ -1,0 +1,30 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<!--     <div class="Animated05" id="layout-menu-cover"> -->
+	<div class="menu-wrapper">
+		<div class="layout-menu-container">
+			<h:form id="formMttoExterno" prependId="false">
+				<p:menu widgetVar="RainMenuWidget" toggleable="true">
+					<p:menuitem id="rm_dashboard"
+						value="#{msgRecurso.lbl_menu_dashboard}" icon="pi pi-home"
+						outcome="/dashboard" />
+					<p:submenu id="mtto" label="Mantenimientos"
+						icon="pi pi-cog">
+						<p:submenu id="mtto_permisos"
+							label="Módulos" icon="pi pi-id-card">
+							
+						
+						</p:submenu>
+					</p:submenu>
+				</p:menu>
+			</h:form>
+		</div>
+	</div>
+
+	<!--     </div> -->
+
+</ui:composition>

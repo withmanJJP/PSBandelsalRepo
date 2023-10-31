@@ -1,0 +1,33 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>Tu Dashboard</title>
+        <style>
+            /* Estilo para el fondo azul principal */
+            .main-bg {
+                background-color: #0074cc; /* Azul */
+                color: #fff; /* Texto en blanco */
+            }
+
+            /* Estilo para el fondo gris secundario */
+            .secondary-bg {
+                background-color: #999; /* Gris */
+                color: #000; /* Texto en negro */
+            }
+        </style>
+    </h:head>
+
+    <h:body>
+        <p:menu styleClass="main-bg">
+            <!-- ... Menú y elementos de menú ... -->
+        </p:menu>
+
+        <div class="content secondary-bg">
+            <!-- Contenido de la página -->
+        </div>
+    </h:body>
+</ui:composition>

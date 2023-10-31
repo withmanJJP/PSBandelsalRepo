@@ -1,0 +1,40 @@
+package models;
+
+import java.io.Serializable;
+import javax.persistence.*;
+
+/**
+ * The primary key class for the af_registro_siau_soporte database table.
+ * 
+ */
+@Embeddable
+public class BlogsReadersPK implements Serializable {
+
+  @Column(name = "r_id")
+  private Long rId;
+  @Column(name = "b_id")
+  private Long bId;
+
+  public BlogsReadersPK() {
+  }
+
+  public boolean equals(Object other) {
+    if (this == other) {
+      return true;
+    }
+    if (!(other instanceof BlogsReadersPK)) {
+      return false;
+    }
+    BlogsReadersPK castOther = (BlogsReadersPK) other;
+    return this.rId.equals(castOther.rId) && this.bId.equals(castOther.bId);
+  }
+
+  public int hashCode() {
+    final int prime = 31;
+    int hash = 17;
+    hash = hash * prime + this.rId.hashCode();
+    hash = hash * prime + this.bId.hashCode();
+
+    return hash;
+  }
+}

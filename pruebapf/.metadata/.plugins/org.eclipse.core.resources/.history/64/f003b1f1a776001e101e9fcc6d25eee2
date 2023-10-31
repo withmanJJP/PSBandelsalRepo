@@ -1,0 +1,41 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>BANDELSAL</title>
+        <style>
+            /* Estilo para el fondo azul principal */
+           
+
+            /* Estilo para el fondo gris secundario */
+            .secondary-bg {
+                background-color: #999; /* Gris */
+                color: #000; /* Texto en negro */
+            }
+        </style>
+    </h:head>
+
+    <h:body styleClass="main-bg" style="background-color:gray;">
+		<h:form id="formMttoExterno" prependId="false" style="text-align:start;">
+				<p:menu widgetVar="RainMenuWidget" toggleable="true">
+					<p:menuitem id="rm_dashboard"
+						value="#{msgRecurso.lbl_menu_dashboard}" icon="pi pi-home"
+						outcome="/dashboard" />
+					<p:submenu id="mtto" label="Mantenimientos"
+						icon="pi pi-cog">
+						<p:submenu id="mtto_permisos"
+							label="Módulos" icon="pi pi-id-card">
+							
+						
+						</p:submenu>
+					</p:submenu>
+				</p:menu>
+			</h:form>
+        <div class="content secondary-bg">
+            <!-- Contenido de la página -->
+        </div>
+    </h:body>
+</ui:composition>

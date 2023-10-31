@@ -1,0 +1,15 @@
+package models;
+
+import java.io.Serializable;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "blogs")
+public class Blogs implements Serializable
+
+public Blogs() {
+	
+	}
+
+}

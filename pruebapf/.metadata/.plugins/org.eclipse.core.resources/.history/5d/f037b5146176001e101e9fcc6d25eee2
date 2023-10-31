@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf16985189504560" configfile="/testpf/src/main/webapp/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="*" id="pf16985191341044" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf16985191341045 pf16985868873640" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/dashboard.xhtml" id="pf16985191341046" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf16985191341045" path="/dashboard.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/blogs_edicion.xhtml" id="pf16985868873641" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf16985868873640" path="/pages/blogs_edicion.xhtml"/>
+  <links id="pf16985191341045" target="pf16985191341046" source="pf16985191341044" outcome="loginSuccess"/>
+  <links id="pf16985868873640" target="pf16985868873641" source="pf16985191341044" outcome="edicionBlogs"/>
+</pageflow:Pageflow>

@@ -1,0 +1,26 @@
+package snippet;
+
+public class Snippet {
+	public static void main(String[] args) {
+		<dependency>
+		      <groupId>org.primefaces.extensions</groupId>
+		      <artifactId>resources-ckeditor</artifactId>
+		      <version>11.0.4</version>
+		      <scope>runtime</scope>
+		    </dependency>
+		
+		    <dependency>
+		      <groupId>org.hibernate</groupId>
+		      <artifactId>hibernate-c3p0</artifactId>
+		      <version>5.5.0.Final</version>
+		      <exclusions>
+		        <exclusion>
+		          <artifactId>xml-apis</artifactId>
+		          <groupId>xml-apis</groupId>
+		        </exclusion>
+		      </exclusions>
+		    </dependency>
+		
+	}
+}
+

@@ -1,0 +1,18 @@
+package services;
+
+import javax.enterprise.context.ApplicationScoped;
+import javax.faces.application.Application;
+import javax.faces.application.ApplicationWrapper;
+import javax.faces.application.FacesApplication;
+
+@ApplicationScoped
+@FacesApplication
+public class CustomApplication extends ApplicationWrapper {
+
+    public CustomApplication(Application wrapped) {
+        super(wrapped);
+    }
+
+    // Puedes agregar métodos adicionales si es necesario
+}
+

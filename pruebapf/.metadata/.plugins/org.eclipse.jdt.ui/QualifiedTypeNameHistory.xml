@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="models.Consecutivo"/>
+    <fullyQualifiedTypeName name="utils.NextConsecutive"/>
+    <fullyQualifiedTypeName name="services.ReadersImplServices"/>
+    <fullyQualifiedTypeName name="javax.faces.bean.ManagedBean"/>
+    <fullyQualifiedTypeName name="java.io.Serializable"/>
+    <fullyQualifiedTypeName name="javax.enterprise.context.RequestScoped"/>
+    <fullyQualifiedTypeName name="javax.inject.Named"/>
+    <fullyQualifiedTypeName name="services.BlogsImplServices"/>
+    <fullyQualifiedTypeName name="javax.inject.Inject"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="models.BlogsReadersPK"/>
+    <fullyQualifiedTypeName name="models.Readers"/>
+    <fullyQualifiedTypeName name="models.Blogs"/>
+    <fullyQualifiedTypeName name="models.BlogsReaders"/>
+    <fullyQualifiedTypeName name="javax.annotation.PostConstruct"/>
+    <fullyQualifiedTypeName name="javax.persistence.Id"/>
+    <fullyQualifiedTypeName name="javax.persistence.Column"/>
+    <fullyQualifiedTypeName name="dto.BlogsDto"/>
+    <fullyQualifiedTypeName name="javax.faces.context.FacesContext"/>
+    <fullyQualifiedTypeName name="javax.faces.application.FacesMessage"/>
+    <fullyQualifiedTypeName name="dto.BlogsReadersDto"/>
+    <fullyQualifiedTypeName name="dto.ReadersDto"/>
+</qualifiedTypeNameHistroy>

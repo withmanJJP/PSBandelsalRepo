@@ -1,0 +1,42 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>Bandelsal</title>
+        <link rel="stylesheet" type="text/css" href="src/main/webapp/estilos.css" />
+    </h:head>
+
+    <h:body style=" background-image: url('bandelsal.png');">
+		<h:form prependId="false" style="text-align:start;">
+				<p:menu widgetVar="RainMenuWidget" toggleable="true">
+					<p:menuitem
+						value="#{msgRecurso.lbl_menu_dashboard}" icon="pi pi-home"
+						outcome="/dashboard" />
+					<p:submenu label="Mantenimientos"
+						icon="pi pi-cog">
+						<p:menuitem 
+							style="color:green;"
+							value="Blogs" icon="pi pi-book"
+							outcome="/pages/blogs/blogs_query.xhtml"></p:menuitem>
+						<p:menuitem 
+							style="color:green;"
+							value="Readers" icon="pi pi-user"
+							outcome="/pages/readers/readers_query.xhtml"></p:menuitem>
+						<p:menuitem
+							style="color:green;"
+							value="Readers x Blogs" icon="pi pi-users"
+							outcome="/pages/blogsreaders/blogsreaders_query.xhtml"></p:menuitem>
+					</p:submenu>
+				</p:menu>
+			</h:form>
+			
+        <div class="content secondary-bg">
+    <h:form id="myForm">
+			
+    </h:form>
+        </div>
+    </h:body>
+</ui:composition>

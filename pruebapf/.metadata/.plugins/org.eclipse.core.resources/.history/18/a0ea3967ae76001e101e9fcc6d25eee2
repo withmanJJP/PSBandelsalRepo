@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+/* Fondo gris */
+body {
+    background-color: #f2f2f2; /* Gris claro */
+}
+
+/* Encabezado azul claro */
+.header {
+    background-color: #b3e0ff; /* Azul claro */
+    color: #333; /* Texto oscuro */
+}
+
+/* Botón con fondo azul claro y texto blanco */
+.button {
+    background-color: #b3e0ff; /* Azul claro */
+    color: #fff; /* Texto blanco */
+    border: 1px solid #007acc; /* Borde azul */
+}
+
+/* Enlaces azules */
+a {
+    color: #007acc; /* Azul */
+}
+
+/* Texto gris oscuro */
+.gray-text {
+    color: #333; /* Gris oscuro */
+}

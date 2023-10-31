@@ -1,0 +1,126 @@
+package services;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+
+import dto.BlogsDto;
+import models.Blogs;
+import models.Consecutivo;
+import utils.NextConsecutive;
+
+@Named("blogsImplServices")
+@RequestScoped
+public class BlogsImplServices {
+	
+	 @PersistenceContext(unitName="bandelsal")
+	 private final EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
+	 
+	
+	public BlogsImplServices() {
+		
+	}
+
+	
+	 public synchronized long getSequence(String tabla) {
+		 em.getTransaction().begin();   
+		 Consecutivo c = em.find(Consecutivo.class, tabla);
+		    long valor = c.getValor();
+		    c.setValor(valor + 1);
+		    em.merge(c);
+		    //actualizo el valor
+		    em.getTransaction().commit();
+		    return valor;
+		  }
+	
+	
+   
+    public List<BlogsDto> getBlogsDto(BlogsDto blog) {
+        List<BlogsDto> result = new ArrayList<BlogsDto>();
+        List<Blogs> list = new ArrayList<Blogs>();
+
+        StringBuffer sql = new StringBuffer();
+        Query query = null;
+        Map<String, Object> map = new HashMap<String, Object>();
+
+        sql.append("SELECT t FROM ");
+        sql.append(Blogs.class.getCanonicalName());
+        sql.append(" t WHERE 1 = 1 ");
+
+        if (blog.getId() > 0) {
+            sql.append(" AND t.id = :id ");
+            map.put("id", blog.getId());
+        }
+
+        if (blog.getTitle() != null && !blog.getTitle().isEmpty()) {
+            sql.append(" AND t.title = :title ");
+            map.put("title", blog.getTitle());
+        }
+
+        sql.append(" ORDER BY t.id ");
+        query = em.createQuery(sql.toString());
+        for (Map.Entry<String, Object> valor : map.entrySet()) {
+            query.setParameter(valor.getKey(), valor.getValue());
+        }
+
+        list = query.getResultList();
+        for (Blogs b : list) {
+			BlogsDto bDto = new BlogsDto();
+			bDto.setId(b.getId());
+			bDto.setTitle(b.getTitle());
+			bDto.setDescription(b.getDescription());
+			result.add(bDto);
+		}
+        
+        return result;
+    }
+
+    public void create(BlogsDto blogDto) {
+        em.getTransaction().begin();
+        Blogs blog = new Blogs();
+        blog.setId(getSequence(NextConsecutive.BLOGS));
+        blog.setTitle(blogDto.getTitle());
+        blog.setDescription(blogDto.getDescription());
+        em.persist(blog);
+        em.getTransaction().commit();
+    }
+
+    public BlogsDto getBlogById(Long id) {
+    	Blogs blog = em.find(Blog.class, id);
+    }
+//
+//    public void updateBlog(Blog blog) {
+//        em.getTransaction().begin();
+//        em.merge(blog);
+//        em.getTransaction().commit();
+//    }
+//
+//    public void deleteBlog(Long id) {
+//        em.getTransaction().begin();
+//        Blog blog = em.find(Blog.class, id);
+//        if (blog != null) {
+//            em.remove(blog);
+//        }
+//        em.getTransaction().commit();
+//    }
+//
+//    public void createBlogReader(Blog blog, Reader reader) {
+//        em.getTransaction().begin();
+//        BlogsReaders br = new BlogsReaders();
+//        br.setB_id(blog.getId());
+//        br.setR_id(reader.getId());
+//        em.persist(br);
+//        em.getTransaction().commit();
+//    }
+
+
+
+}
+

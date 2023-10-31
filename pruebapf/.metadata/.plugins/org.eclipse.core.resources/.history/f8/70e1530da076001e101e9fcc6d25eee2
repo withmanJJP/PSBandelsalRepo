@@ -1,0 +1,365 @@
+package com.creandosoft.administrativo.publico.utils;
+
+import java.io.IOException;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+
+import org.apache.log4j.Logger;
+import org.primefaces.PrimeFaces;
+
+import com.creandosoft.administrativo.publico.enumerations.EModulo;
+import com.creandosoft.administrativo.publico.enumerations.EModuloPadre;
+import com.creandosoft.administrativo.publico.models.Mensaje;
+
+import javolution.util.FastMap;
+import javolution.util.FastTable;
+
+@ManagedBean
+@SessionScoped
+public class GuestPreferences implements Serializable {
+
+  private static final Logger LOG = Logger.getLogger(GuestPreferences.class);
+  private static final long serialVersionUID = 4410174153865643944L;
+
+  private String menuMode = "layout-overlay";
+
+  private String darkMode = "light";
+
+  private String layoutPrimaryColor = "cyan";
+
+  private String componentTheme = "cyan";
+
+  private String topbarTheme = "dark";
+
+  private String menuTheme = "dark";
+
+  private String profileMode = "popup";
+
+  private String inputStyle = "outlined";
+
+  private boolean groupedMenu = true;
+
+  private boolean lightLogo = true;
+
+  private List<ComponentTheme> componentThemes = new ArrayList<ComponentTheme>();
+
+  private List<LayoutPrimaryColor> layoutPrimaryColors = new ArrayList<LayoutPrimaryColor>();
+
+  private String urlDialog;
+
+  private String generalSearch;
+
+  private String otraVariableSearch = "";
+
+  private FastTable<GeneralSearchDto> listResultSearch;
+
+  private String menuLayout = "static";
+
+  private String sede;
+
+  @PostConstruct
+  public void init() {
+    componentThemes.add(new ComponentTheme("Blue", "blue", "#2c84d8"));
+    componentThemes.add(new ComponentTheme("Wisteria", "wisteria", "#A864AE"));
+    componentThemes.add(new ComponentTheme("Cyan", "cyan", "#25A4D4"));
+    componentThemes.add(new ComponentTheme("Amber", "amber", "#DB8519"));
+    componentThemes.add(new ComponentTheme("Pink", "pink", "#F5487F"));
+    componentThemes.add(new ComponentTheme("Orange", "orange", "#CB623A"));
+    componentThemes.add(new ComponentTheme("Victoria", "victoria", "#594791"));
+    componentThemes.add(new ComponentTheme("Chateau Green", "chateau-green", "#3C9462"));
+    componentThemes.add(new ComponentTheme("Paradiso", "paradiso", "#3B9195"));
+    componentThemes.add(new ComponentTheme("Chambray", "chambray", "#3161BA"));
+    componentThemes.add(new ComponentTheme("Tapestry", "tapestry", "#A2527F"));
+
+    layoutPrimaryColors.add(new LayoutPrimaryColor("Blue", "blue", "#2c84d8"));
+    layoutPrimaryColors.add(new LayoutPrimaryColor("Wisteria", "wisteria", "#A053A7"));
+    layoutPrimaryColors.add(new LayoutPrimaryColor("Cyan", "cyan", "#25A4D4"));
+    layoutPrimaryColors.add(new LayoutPrimaryColor("Amber", "amber", "#DB8519"));
+    layoutPrimaryColors.add(new LayoutPrimaryColor("Pink", "pink", "#F5487F"));
+    layoutPrimaryColors.add(new LayoutPrimaryColor("Orange", "orange", "#CB623A"));
+    layoutPrimaryColors.add(new LayoutPrimaryColor("Victoria", "victoria", "#705BB1"));
+    layoutPrimaryColors.add(new LayoutPrimaryColor("Chateau Green", "chateau-green", "#3C9462"));
+    layoutPrimaryColors.add(new LayoutPrimaryColor("Paradiso", "paradiso", "#3B9195"));
+    layoutPrimaryColors.add(new LayoutPrimaryColor("Chambray", "chambray", "#3161BA"));
+    layoutPrimaryColors.add(new LayoutPrimaryColor("Tapestry", "tapestry", "#924470"));
+
+  }
+
+  public String getDarkMode() {
+    return darkMode;
+  }
+
+  public boolean isLightLogo() {
+    return lightLogo;
+  }
+
+  public void setDarkMode(String darkMode) {
+    this.darkMode = darkMode;
+    this.menuTheme = darkMode;
+    this.topbarTheme = darkMode;
+    this.lightLogo = !this.topbarTheme.equals("light");
+  }
+
+  public String getLayout() {
+    return "layout-" + this.layoutPrimaryColor + '-' + this.darkMode;
+  }
+
+  public String getTheme() {
+    return this.componentTheme + '-' + this.darkMode;
+  }
+
+  public String getLayoutPrimaryColor() {
+    return layoutPrimaryColor;
+  }
+
+  public void setLayoutPrimaryColor(String layoutPrimaryColor) {
+    this.layoutPrimaryColor = layoutPrimaryColor;
+    this.componentTheme = layoutPrimaryColor;
+  }
+
+  public String getComponentTheme() {
+    return componentTheme;
+  }
+
+  public void setComponentTheme(String componentTheme) {
+    this.componentTheme = componentTheme;
+  }
+
+  public String getMenuTheme() {
+    return menuTheme;
+  }
+
+  public void setMenuTheme(String menuTheme) {
+    this.menuTheme = menuTheme;
+  }
+
+  public String getTopbarTheme() {
+    return topbarTheme;
+  }
+
+  public void setTopbarTheme(String topbarTheme) {
+    this.topbarTheme = topbarTheme;
+    this.lightLogo = !this.topbarTheme.equals("light");
+  }
+
+  public String getMenuMode() {
+    return this.menuMode;
+  }
+
+  public void setMenuMode(String menuMode) {
+    this.menuMode = menuMode;
+  }
+
+  public boolean isGroupedMenu() {
+    return this.groupedMenu;
+  }
+
+  public void setGroupedMenu(boolean value) {
+    this.groupedMenu = value;
+  }
+
+  public String getProfileMode() {
+    return this.profileMode;
+  }
+
+  public void setProfileMode(String profileMode) {
+    this.profileMode = profileMode;
+  }
+
+  public String getInputStyle() {
+    return inputStyle;
+  }
+
+  public void setInputStyle(String inputStyle) {
+    this.inputStyle = inputStyle;
+  }
+
+  public String getInputStyleClass() {
+    return this.inputStyle.equals("filled") ? "ui-input-filled" : "";
+  }
+
+  public String getOtraVariableSearch() {
+    return otraVariableSearch;
+  }
+
+  public void setOtraVariableSearch(String otraVariableSearch) {
+    this.otraVariableSearch = otraVariableSearch;
+  }
+
+  public List<ComponentTheme> getComponentThemes() {
+    return componentThemes;
+  }
+
+  public class ComponentTheme {
+    String name;
+    String file;
+    String color;
+
+    public ComponentTheme(String name, String file, String color) {
+      this.name = name;
+      this.file = file;
+      this.color = color;
+    }
+
+    public String getName() {
+      return this.name;
+    }
+
+    public String getFile() {
+      return this.file;
+    }
+
+    public String getColor() {
+      return this.color;
+    }
+  }
+
+  public List<LayoutPrimaryColor> getLayoutPrimaryColors() {
+    return layoutPrimaryColors;
+  }
+
+  public class LayoutPrimaryColor {
+    String name;
+    String file;
+    String color;
+
+    public LayoutPrimaryColor(String name, String file, String color) {
+      this.name = name;
+      this.file = file;
+      this.color = color;
+    }
+
+    public String getName() {
+      return this.name;
+    }
+
+    public String getFile() {
+      return this.file;
+    }
+
+    public String getColor() {
+      return this.color;
+    }
+  }
+
+  public String getUrlDialog() {
+    return urlDialog;
+  }
+
+  public void setUrlDialog(String urlDialog) {
+    this.urlDialog = urlDialog;
+  }
+
+  public void setMenuLayout(String menuLayout) {
+    this.menuLayout = menuLayout;
+  }
+
+  public String getMenuLayout() {
+    if (this.menuLayout.equals("static"))
+      return "menu-layout-static";
+    else if (this.menuLayout.equals("overlay"))
+      return "menu-layout-overlay";
+    else if (this.menuLayout.equals("horizontal"))
+      return "menu-layout-static menu-layout-horizontal";
+    else
+      return "menu-layout-static";
+  }
+
+  public String getGeneralSearch() {
+    return generalSearch;
+  }
+
+  public void setGeneralSearch(String generalSearch) {
+    this.generalSearch = generalSearch;
+  }
+
+  public FastTable<GeneralSearchDto> getListResultSearch() {
+    return listResultSearch;
+  }
+
+  public void setListResultSearch(FastTable<GeneralSearchDto> listResultSearch) {
+    this.listResultSearch = listResultSearch;
+  }
+
+  /**
+   * Obtiene los resultados de búsqueda en HCE .
+   * 
+   * @return Siempre retorna null.
+   * @throws IOException Si ocurre un error de lectura o escritura.
+   * 
+   * @author Modificado por nelson.rueda 15/05/2023
+   */
+  public String getSearchInHCE() throws IOException {
+    try {
+      this.listResultSearch = new FastTable<>(); // Crea una nueva lista de resultados de búsqueda
+      FastMap<String, GeneralSearchDto> mapGeneralSearch = new FastMap<>(); // Crea un mapa para almacenar los resultados de búsqueda
+      String[] searchAr = otraVariableSearch != null ? otraVariableSearch.split(" ") : new String[0]; // Obtiene las palabras de búsqueda separadas por espacios
+
+      int cont = 1; // Variable para asignar un índice a cada resultado de búsqueda
+      for (EModulo modulo : EModulo.values()) {
+        String nameModule = modulo.getNombre(Util.getUsuarioSesion().getLocalidad());
+
+        // Construye la URL del módulo concatenando la URL con los parámetros del módulo, si existen
+        String urlModule = "/" + modulo.getUrl() + (!Util.isEmptyString(modulo.getModuleParam()) ? ("?" + modulo.getModuleParam()) : "");
+
+        // Comprueba si se debe agregar un GeneralSearchDto para el módulo actual
+        boolean debeAgregarDto = searchAr.length == 0 || contieneCoincidenciaIgnorandoCase(nameModule, searchAr);
+        if (debeAgregarDto && !mapGeneralSearch.containsKey(nameModule)&&modulo.getModuloPadre()!=EModuloPadre.AGENDA.getId()) {
+
+          GeneralSearchDto dto = new GeneralSearchDto();
+          dto.setIndex(cont); // Asigna el índice al objeto GeneralSearchDto
+          dto.setId(modulo.getId()); // Asigna el ID del módulo al objeto GeneralSearchDto
+          dto.setUrl(urlModule); // Asigna la URL del módulo al objeto GeneralSearchDto
+          dto.setName(nameModule); // Asigna el nombre del módulo al objeto GeneralSearchDto
+          dto.setModulo(EModuloPadre.getNombre(modulo.getModuloPadre())); // Asigna el nombre del módulo padre al objeto GeneralSearchDto
+          mapGeneralSearch.put(nameModule, dto); // Agrega el objeto GeneralSearchDto al mapa, utilizando el nombre del módulo como clave
+          cont++; // Incrementa el contador de índice
+        }
+      }
+
+      this.listResultSearch.addAll(mapGeneralSearch.values()); // Agrega todos los objetos GeneralSearchDto al resultado de búsqueda
+
+      PrimeFaces context = PrimeFaces.current();
+      context.executeScript("PF('varRta').show();"); // Ejecuta un script para mostrar un componente PrimeFaces llamado 'varRta'
+    }
+    catch (Exception e) {
+      e.printStackTrace();
+      Util.registrarErroresNoManejados(Mensaje.getMensaje("error_advertencia"), Mensaje.getMensaje("erro_no_encontrado"));
+      throw new RuntimeException(e);
+    }
+
+    return null;
+  }
+
+  /**
+   * Verifica si el texto contiene alguna de las cadenas de búsqueda, ignorando las diferencias de mayúsculas y minúsculas.
+   * 
+   * @param text El texto en el que se realizará la búsqueda (String).
+   * @param searchArray El arreglo de cadenas de búsqueda (String[]).
+   * @return true si el texto contiene alguna de las cadenas de búsqueda (ignorando mayúsculas y minúsculas), false en caso contrario.
+   * 
+   * @author nelson.rueda 15/05/2023
+   */
+  private boolean contieneCoincidenciaIgnorandoCase(String text, String[] searchArray) {
+    for (String searchString : searchArray) { // Itera sobre cada cadena de búsqueda en el arreglo
+      if (text.toLowerCase().contains(searchString.toLowerCase())) { // Verifica si el texto contiene la cadena de búsqueda (ignorando mayúsculas y minúsculas)
+        return true; // Retorna true si hay una coincidencia
+      }
+    }
+    return false; // Retorna false si no se encuentra ninguna coincidencia
+  }
+
+  public String getSede() {
+    return sede;
+  }
+
+  public void setSede(String sede) {
+    this.sede = sede;
+  }
+
+}

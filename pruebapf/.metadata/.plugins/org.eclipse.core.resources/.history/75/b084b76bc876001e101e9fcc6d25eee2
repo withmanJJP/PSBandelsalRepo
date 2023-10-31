@@ -1,0 +1,79 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+	
+	<h:head>
+        <title>Bandelsal - Readers</title>
+        <link rel="stylesheet" type="text/css" href="src/main/webapp/estilos.css" />
+    </h:head>
+	
+	<h:body>
+	<div class="container">
+    	<h:form prependId="false" style="text-align:start;">
+				<p:menu widgetVar="RainMenuWidget" toggleable="true">
+					<p:menuitem 
+						value="#{msgRecurso.lbl_menu_dashboard}" icon="pi pi-home"
+						outcome="/dashboard" />
+					<p:submenu  label="Mantenimientos"
+						icon="pi pi-cog">
+						<p:menuitem
+							style="color:green;"
+							value="Blogs" icon="pi pi-book"
+							outcome="/pages/blogs/blogs_query.xhtml"></p:menuitem>
+						<p:menuitem 
+							style="color:green;"
+							value="Blogs" icon="pi pi-user"
+							outcome="/pages/readers/readers_query.xhtml"></p:menuitem>
+					</p:submenu>
+				</p:menu>
+			</h:form>
+		</div>
+	
+	<div class="container" align="center">
+    <h:form id="formReaderQ">
+    	<h3>READERS</h3>
+        <p:panelGrid columns="4">
+            <h:outputText value="Id Reader" />
+            <p:inputText value="#{readerFormBean.objectQ.id}" />
+
+            <h:outputText value="Title" />
+            <p:inputText value="#{readerFormBean.objectQ.names}" />
+
+        </p:panelGrid>
+         <p:panelGrid columns="3">
+            <p:commandButton value="Agregar" icon="pi pi-check" action="#{readerFormBean.agregar}" 
+            			update="dataBlogQ formBlogQ" styleClass="p-button" />
+            
+            <p:commandButton value="Buscar" icon="pi pi-search" action="#{readerFormBean.buscarReaders}" 
+            			update="dataBlogQ formBlogQ" styleClass="p-button" />
+
+            <p:commandButton value="Limpiar" icon="pi pi-trash" action="#{readerFormBean.limpiar}" 
+            			update="dataBlogQ formBlogQ" styleClass="p-button" />
+			
+			
+        </p:panelGrid>
+		<br></br>
+        <p:dataTable id="dataReaderQ" emptyMessage="No Data" var="item" rowKey="item.id" value="#{readerFormBean.readers}">
+            <p:column width="5%" headerText="Eliminar">
+               <p:commandButton icon="pi pi-trash" action="#{readerFormBean.borrar}" 
+            		  update="dataBlogQ formBlogQ"/>
+			
+            </p:column>
+            <p:column width="5%" headerText="Editar">
+               <p:commandButton icon="pi pi-check" actionListener="#{readerFormBean.editar(item.id)}" 
+            		  />
+			
+            </p:column>
+            <p:column width="10%" headerText="Id Readers">
+                <h:outputText value="#{item.id}" />
+            </p:column>
+            <p:column width="15%" headerText="Names">
+                <h:outputText value="#{item.names}" />
+            </p:column>
+        </p:dataTable>
+    </h:form>
+   </div>
+   </h:body>
+</ui:composition>

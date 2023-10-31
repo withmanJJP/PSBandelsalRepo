@@ -1,0 +1,131 @@
+package beans;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
+
+import dto.ReadersDto;
+import services.ReadersImplServices;
+
+@Named
+@RequestScoped
+public class ReaderModelFormBean implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4352077517623512250L;
+
+	@Inject
+	private ReadersImplServices readersImplServices;
+
+	private ReadersDto objectQ;
+
+	private ReadersDto object;
+
+	private ArrayList<ReadersDto> readers;
+
+	public ReaderModelFormBean() {
+		objectQ = new ReadersDto();
+		object = new ReadersDto();
+	}
+
+	public ReadersImplServices getReadersImplServices() {
+		return readersImplServices;
+	}
+
+	public void setReadersImplServices(ReadersImplServices readersImplServices) {
+		this.readersImplServices = readersImplServices;
+	}
+
+	public ReadersDto getObjectQ() {
+		return objectQ;
+	}
+
+	public void setObjectQ(ReadersDto objectQ) {
+		this.objectQ = objectQ;
+	}
+
+	public ReadersDto getObject() {
+		return object;
+	}
+
+	public void setObject(ReadersDto object) {
+		this.object = object;
+	}
+
+	public ArrayList<ReadersDto> getBlogs() {
+		return blogs;
+	}
+
+	public void setBlogs(ArrayList<ReadersDto> blogs) {
+		this.blogs = blogs;
+	}
+
+	public String buscarReaders() {
+		try {
+			this.blogs = (ArrayList<ReadersDto>) readersImplServices.getReadersDto(objectQ);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public String enviarEditar(Long id) {
+		try {
+			this.object = id != null ? this.blogs.stream().filter(blog -> blog.getId() == id).findFirst().orElse(null)
+					: new ReadersDto();
+
+			return "edicionBlogs";
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public String anteriorConsulta() {
+		try {
+			return "consultaBlogs";
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public String actualizar() {
+		try {
+			if (this.object.getId() > 0) {
+				readersImplServices.update(this.object);
+			} else {
+				// readersImplServices.createBlogReader();
+				readersImplServices.create(this.object);
+			}
+
+			this.buscarBlogs();
+			return anteriorConsulta();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public String borrar(Long id) {
+		try {
+			readersImplServices.delete(id);
+
+			this.buscarBlogs();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public void limpiarForm() {
+		this.objectQ = new ReadersDto();
+		this.blogs = new ArrayList<>();
+	}
+
+}

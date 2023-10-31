@@ -1,0 +1,36 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+    <!-- Encabezado de la página -->
+    <h:head>
+        <title>Tu Dashboard</title>
+    </h:head>
+
+    <h:body>
+
+        <!-- Barra de navegación superior -->
+        <p:menubar>
+            <p:submenu label="Inicio">
+                <p:menuitem value="Página de Inicio" url="#" />
+            </p:submenu>
+            <p:submenu label="Productos">
+                <p:menuitem value="Lista de Productos" url="#" />
+                <p:menuitem value="Agregar Producto" url="#" />
+            </p:submenu>
+            <p:submenu label="Clientes">
+                <p:menuitem value="Lista de Clientes" url="#" />
+                <p:menuitem value="Agregar Cliente" url="#" />
+            </p:submenu>
+            <!-- Agrega más elementos de menú según sea necesario -->
+        </p:menubar>
+
+        <div class="content">
+            <!-- Contenido de la página -->
+            <!-- Aquí puedes colocar el contenido específico de tu dashboard -->
+        </div>
+
+    </h:body>
+</ui:composition>

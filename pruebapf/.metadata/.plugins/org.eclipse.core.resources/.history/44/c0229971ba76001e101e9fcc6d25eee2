@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_3.xsd"
+              version="2.3">
+
+    
+       <managed-bean>
+        <description>Inicio</description>
+        <managed-bean-name>inicioSesionFormBean</managed-bean-name>
+        <managed-bean-class>beans.InicioSesionModelFormBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+     <managed-bean>
+        <description>Blog</description>
+        <managed-bean-name>blogFormBean</managed-bean-name>
+        <managed-bean-class>beans.BlogModelFormBean</managed-bean-class>
+        <managed-bean-scope>sessiom</managed-bean-scope>
+    </managed-bean>
+    
+<!--     <managed-bean> -->
+<!--         <description>Reader</description> -->
+<!--         <managed-bean-name>readerFormBean</managed-bean-name> -->
+<!--         <managed-bean-class>beans.ReaderModelFormBean</managed-bean-class> -->
+<!--         <managed-bean-scope>session</managed-bean-scope> -->
+<!--     </managed-bean> -->
+    
+  
+
+    <navigation-rule>
+        <from-view-id>*</from-view-id>
+        <navigation-case>
+            <from-outcome>loginSuccess</from-outcome>
+            <to-view-id>/dashboard.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+<!--     <navigation-rule> -->
+<!--         <from-view-id>*</from-view-id> -->
+<!--         <navigation-case> -->
+<!--             <from-outcome>edicionBlogs</from-outcome> -->
+<!--             <to-view-id>/pages/blogs_edicion.xhtml</to-view-id> -->
+<!--         </navigation-case> -->
+<!--     </navigation-rule> -->
+
+<!--     <navigation-rule> -->
+<!--         <from-view-id>*</from-view-id> -->
+<!--         <navigation-case> -->
+<!--             <from-outcome>consultaBlogs</from-outcome> -->
+<!--             <to-view-id>/pages/blogs_consulta.xhtml</to-view-id> -->
+<!--         </navigation-case> -->
+<!--     </navigation-rule> -->
+
+<!--     <navigation-rule> -->
+<!--         <from-view-id>*</from-view-id> -->
+<!--         <navigation-case> -->
+<!--             <from-outcome>edicionReaders</from-outcome> -->
+<!--             <to-view-id>/pages/readers_edicion.xhtml</to-view-id> -->
+<!--         </navigation-case> -->
+<!--     </navigation-rule> -->
+
+<!--     <navigation-rule> -->
+<!--         <from-view-id>*</from-view-id> -->
+<!--         <navigation-case> -->
+<!--             <from-outcome>consultarReaders</from-outcome> -->
+<!--             <to-view-id>/pages/readers_consulta.xhtml</to-view-id> -->
+<!--         </navigation-case> -->
+<!--     </navigation-rule> -->
+
+    <navigation-rule>
+        <from-view-id>*</from-view-id>
+        <navigation-case>
+            <from-outcome>dashboard</from-outcome>
+            <to-view-id>/dashboard.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+	
+
+</faces-config>

@@ -1,0 +1,45 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pr="http://primefaces.org/rain">
+
+	<!--     <div class="Animated05" id="layout-menu-cover"> -->
+	<div class="menu-wrapper">
+		<div class="layout-menu-container">
+			<h:form id="formMttoExterno" prependId="false">
+				<pr:menu widgetVar="RainMenuWidget" toggleable="true">
+					<p:menuitem id="rm_dashboard"
+						value="#{msgRecurso.lbl_menu_dashboard}" icon="pi pi-home"
+						outcome="/dashboard" />
+					<p:submenu id="mtto" label="#{msgRecurso.lbl_menu_mantenimientos}"
+						icon="pi pi-cog">
+						<p:submenu id="mtto_permisos"
+							label="Módulos" icon="pi pi-id-card">
+							<p:menuitem id="mtto_usuarios"
+								style="color:#{usuario.evaluarPermiso('mtto_usuarios') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								value="#{msgRecurso.lbl_menu_mtto_usuarios}" icon="pi pi-user"
+								outcome="/pages/mtto/usuario/usuario.xhtml"></p:menuitem>
+							<p:menuitem id="mtto_tbperfil"
+								style="color:#{usuario.evaluarPermiso('mtto_tbperfil') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_tbperfil')}"
+								value="#{msgRecurso.lbl_menu_mtto_tbperfil}" icon="pi pi-users"
+								outcome="/pages/mtto/tbperfil/tbperfil.xhtml"
+								onclick="PF('bui').show();return true;"></p:menuitem>
+							<p:menuitem id="mtto_permiso"
+								style="color:#{usuario.evaluarPermiso('mtto_permiso') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_permiso')}"
+								value="#{msgRecurso.lbl_menu_mtto_permiso}" icon="pi pi-lock"
+								outcome="/pages/mtto/permiso/permiso.xhtml"
+								onclick="PF('bui').show();return true;"></p:menuitem>
+						
+						</p:submenu>
+				</pr:menu>
+			</h:form>
+		</div>
+	</div>
+
+	<!--     </div> -->
+
+</ui:composition>

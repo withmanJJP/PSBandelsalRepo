@@ -1,0 +1,74 @@
+package models;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "blogs_readers")
+public class BlogsReaders implements Serializable {
+
+	/**
+		 * 
+		 */
+	private static final long serialVersionUID = 5957260091778266065L;
+
+	@Id
+	@Column(name = "r_id")
+	private long rId;
+
+	@Id
+	@Column(name = "b_id")
+	private long bId;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "r_id", insertable = false, updatable = false)
+	private Readers readers;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "b_id", insertable = false, updatable = false)
+	private Blogs blogs;
+
+	public BlogsReaders() {
+
+	}
+
+	public long getrId() {
+		return rId;
+	}
+
+	public void setrId(long rId) {
+		this.rId = rId;
+	}
+
+	public long getbId() {
+		return bId;
+	}
+
+	public void setbId(long bId) {
+		this.bId = bId;
+	}
+
+	public Readers getReaders() {
+		return readers;
+	}
+
+	public void setReaders(Readers readers) {
+		this.readers = readers;
+	}
+
+	public Blogs getBlogs() {
+		return blogs;
+	}
+
+	public void setBlogs(Blogs blogs) {
+		this.blogs = blogs;
+	}
+
+}

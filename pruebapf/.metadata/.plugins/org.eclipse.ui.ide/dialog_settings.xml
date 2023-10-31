@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.dialogs.FilteredResourcesSelectionDialog">
+		<item key="ShowStatusLine" value="true"/>
+		<item key="History" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0A;&lt;History&gt;&#x0A;&lt;historyRootNode&gt;&#x0A;&lt;infoNode path=&quot;/testpf/src/main/java/beans/BlogModelFormBean.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/testpf/src/main/java/beans/InicioSesionModelFormBean.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/testpf/src/main/webapp/WEB-INF/web.xml&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/testpf/src/main/webapp/pages/blogs/blogs_edition.xhtml&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/testpf/src/main/webapp/pages/readers/readers_edition.xhtml&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/testpf/src/main/webapp/WEB-INF/faces-config.xml&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/testpf/src/main/webapp/pages/blogsreaders/blogsreaders_edition.xhtml&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/testpf/src/main/java/beans/ReaderModelFormBean.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/testpf/src/main/java/services/ReadersImplServices.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/testpf/src/main/java/models/BlogsReaders.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/testpf/src/main/webapp/pages/blogs/blogs_query.xhtml&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/testpf/src/main/webapp/dashboard.xhtml&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/testpf/src/main/webapp/estilos.css&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/testpf/src/main/webapp/login.xhtml&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/testpf/src/main/java/utils/GuestPreferences.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;/historyRootNode&gt;&#x0A;&lt;/History&gt;"/>
+		<item key="ShowDerived" value="false"/>
+		<item key="FilterByLocation" value="false"/>
+		<item key="WorkingSet" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0A;&lt;workingSet workingSetName=&quot;&quot;/&gt;"/>
+		<section name="DialogBoundsSettings">
+			<item key="DIALOG_HEIGHT" value="500"/>
+			<item key="DIALOG_WIDTH" value="600"/>
+			<item key="DIALOG_X_ORIGIN" value="47"/>
+			<item key="DIALOG_Y_ORIGIN" value="140"/>
+			<item key="DIALOG_FONT_NAME" value="1|Ubuntu|11.0|0|GTK|1|"/>
+		</section>
+	</section>
+	<section name="CleanDialogSettings">
+		<item key="TOGGLE_SELECTED" value="true"/>
+		<item key="DIALOG_WIDTH" value="569"/>
+		<item key="DIALOG_HEIGHT" value="389"/>
+		<item key="DIALOG_FONT_NAME" value="1|Ubuntu|11.0|0|GTK|1|"/>
+	</section>
+</section>

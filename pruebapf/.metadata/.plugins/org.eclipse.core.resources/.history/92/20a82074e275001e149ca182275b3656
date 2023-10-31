@@ -1,0 +1,1509 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pr="http://primefaces.org/rain">
+
+	<!--     <div class="Animated05" id="layout-menu-cover"> -->
+	<div class="menu-wrapper">
+		<div class="layout-menu-container">
+			<h:form id="formMttoExterno" prependId="false">
+				<pr:menu widgetVar="RainMenuWidget" toggleable="true">
+					<p:menuitem id="rm_dashboard"
+						value="#{msgRecurso.lbl_menu_dashboard}" icon="pi pi-home"
+						outcome="/dashboard" />
+					<p:submenu id="mtto" label="#{msgRecurso.lbl_menu_mantenimientos}"
+						icon="pi pi-cog">
+						<p:submenu id="mtto_permisos"
+							label="#{msgRecurso.lbl_menu_permisos}" icon="pi pi-id-card">
+							<p:menuitem id="mtto_usuarios"
+								style="color:#{usuario.evaluarPermiso('mtto_usuarios') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								value="#{msgRecurso.lbl_menu_mtto_usuarios}" icon="pi pi-user"
+								outcome="/pages/mtto/usuario/usuario.xhtml"></p:menuitem>
+							<p:menuitem id="mtto_tbperfil"
+								style="color:#{usuario.evaluarPermiso('mtto_tbperfil') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_tbperfil')}"
+								value="#{msgRecurso.lbl_menu_mtto_tbperfil}" icon="pi pi-users"
+								outcome="/pages/mtto/tbperfil/tbperfil.xhtml"
+								onclick="PF('bui').show();return true;"></p:menuitem>
+							<p:menuitem id="mtto_permiso"
+								style="color:#{usuario.evaluarPermiso('mtto_permiso') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_permiso')}"
+								value="#{msgRecurso.lbl_menu_mtto_permiso}" icon="pi pi-lock"
+								outcome="/pages/mtto/permiso/permiso.xhtml"
+								onclick="PF('bui').show();return true;"></p:menuitem>
+							<p:menuitem id="mtto_empresa"
+								style="color:#{usuario.evaluarPermiso('mtto_empresa') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_empresa')}"
+								value="#{msgRecurso.lbl_menu_mtto_empresa}"
+								icon="pi pi-briefcase"
+								outcome="/pages/contable/scempresa/scempresa.xhtml"
+								onclick="PF('bui').show();return true;"></p:menuitem>
+							<p:menuitem id="mtto_ctsucursal"
+								style="color:#{usuario.evaluarPermiso('mtto_ctsucursal') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_ctsucursal')}"
+								value="#{msgRecurso.lbl_menu_mtto_ctsucursal}"
+								icon="pi pi-clone"
+								outcome="/pages/mtto/ctsucursal/ctsucursal.xhtml"
+								onclick="PF('bui').show();return true;" />
+						</p:submenu>
+
+						<p:submenu id="mtto_medico" label="#{msgRecurso.lbl_menu_medicos}"
+							icon="pi pi-plus-circle">
+							<p:menuitem id="mtto_tbgrupoespecialidad"
+								style="color:#{usuario.evaluarPermiso('mtto_tbgrupoespecialidad') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_tbgrupoespecialidad')}"
+								value="#{msgRecurso.lbl_menu_mtto_tbgrupoespecialidad}"
+								icon="pi pi-list"
+								outcome="/pages/mtto/tbgrupoespecialidad/tbgrupoespecialidad.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_tbgrupomedicamento"
+								style="color:#{usuario.evaluarPermiso('mtto_tbgrupomedicamento') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_tbgrupomedicamento')}"
+								value="#{msgRecurso.lbl_menu_mtto_tbgrupomedicamento}"
+								icon="pi pi-sitemap"
+								outcome="/pages/mtto/tbgrupomedicamento/tbgrupomedicamento.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_tbmarca"
+								style="color:#{usuario.evaluarPermiso('mtto_tbmarca') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_tbmarca')}"
+								value="#{msgRecurso.lbl_menu_mtto_tbmarca}" icon="pi pi-tags"
+								outcome="/pages/mtto/tbmarca/tbmarca.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_tbtiposoporte"
+								style="color:#{usuario.evaluarPermiso('mtto_tbtiposoporte') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_tbtiposoporte')}"
+								value="#{msgRecurso.lbl_menu_mtto_tbtiposoporte}"
+								icon="pi pi-copy"
+								outcome="/pages/mtto/tbtiposoporte/tbtiposoporte.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_tb_administrative_process_header"
+								style="color:#{usuario.evaluarPermiso('mtto_tb_administrative_process_header') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_tb_administrative_process_header')}"
+								value="#{msgRecurso.lbl_pages_mtto_administrative_process_header}"
+								icon="pi pi-copy"
+								outcome="/pages/mtto/administrative_process_header/administrative_process_header.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_tbtipoinsumo"
+								style="color:#{usuario.evaluarPermiso('mtto_tbtipoinsumo') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_tbtipoinsumo')}"
+								value="#{msgRecurso.lbl_menu_mtto_tbtipoinsumo}"
+								icon="pi pi-info-circle"
+								outcome="/pages/mtto/tbtipoinsumo/tbtipoinsumo.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_tbcie10"
+								style="color:#{usuario.evaluarPermiso('mtto_tbcie10') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_tbcie10')}"
+								value="#{msgRecurso.lbl_menu_mtto_tbcie10}"
+								icon="pi pi-calendar"
+								outcome="/pages/mtto/tbcie10/tbcie10.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_tbfinalidad"
+								style="color:#{usuario.evaluarPermiso('mtto_tbfinalidad') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_tbfinalidad')}"
+								value="#{msgRecurso.lbl_menu_mtto_tbFinalidad}"
+								icon="pi pi-ticket"
+								outcome="/pages/mtto/tbfinalidad/tbfinalidad.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_tbcup"
+								style="color:#{usuario.evaluarPermiso('mtto_tbcup') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_tbcup')}"
+								value="#{msgRecurso.lbl_menu_mtto_tbcup}" icon="pi pi-ticket"
+								outcome="/pages/mtto/tbcup/tbcup.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_tbinsumo"
+								style="color:#{usuario.evaluarPermiso('mtto_tbinsumo') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_tbinsumo')}"
+								value="#{msgRecurso.lbl_menu_mtto_tbinsumo}" icon="pi pi-info"
+								outcome="/pages/mtto/tbinsumo/tbinsumo.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_tbmedicamento"
+								style="color:#{usuario.evaluarPermiso('mtto_tbmedicamento') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_tbmedicamento')}"
+								value="#{msgRecurso.lbl_menu_mtto_tbmedicamento}"
+								icon="pi pi-plus"
+								outcome="/pages/mtto/tbmedicamento/tbmedicamento.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_tbespecialidad"
+								style="color:#{usuario.evaluarPermiso('mtto_tbespecialidad') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_tbespecialidad')}"
+								value="#{msgRecurso.lbl_menu_mtto_tbespecialidad}"
+								icon="pi pi-sitemap"
+								outcome="/pages/mtto/tbespecialidad/tbespecialidad.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_tbpersonalmedico"
+								style="color:#{usuario.evaluarPermiso('mtto_tbpersonalmedico') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_tbpersonalmedico')}"
+								value="#{msgRecurso.lbl_menu_mtto_tbpersonalmedico}"
+								icon="pi pi-user-plus"
+								outcome="/pages/mtto/tbpersonalmedico/tbpersonalmedico.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_tbposologia"
+								style="color:#{usuario.evaluarPermiso('mtto_tbposologia') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_tbposologia')}"
+								value="#{msgRecurso.lbl_menu_mtto_tbosologia}"
+								icon="pi pi-calendar-plus"
+								outcome="/pages/mtto/tbposologia/tbposologia.xhtml"
+								onclick="PF('bui').show();return true;" />	
+							
+
+						</p:submenu>
+
+						<p:submenu id="mtto_servicios"
+							label="#{msgRecurso.lbl_menu_servicios}"
+							icon="pi pi-shopping-cart">
+							<p:menuitem id="mtto_tbsoat"
+								style="color:#{usuario.evaluarPermiso('mtto_tbsoat') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_tbsoat')}"
+								value="#{msgRecurso.lbl_menu_mtto_tbsoat}" icon="pi pi-wallet"
+								outcome="/pages/mtto/tbsoat/tbsoat.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_tbiss"
+								style="color:#{usuario.evaluarPermiso('mtto_tbiss') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_tbiss')}"
+								value="#{msgRecurso.lbl_menu_mtto_tbiss}"
+								icon="pi pi-credit-card" outcome="/pages/mtto/tbiss/tbiss.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_tbservicio"
+								style="color:#{usuario.evaluarPermiso('mtto_tbservicio') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_tbservicio')}"
+								value="#{msgRecurso.lbl_menu_mtto_tbservicio}"
+								icon="pi pi-folder-open"
+								outcome="/pages/mtto/tbservicio/tbservicio.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_tbserviciocup"
+								style="color:#{usuario.evaluarPermiso('mtto_tbserviciocup') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_tbserviciocup')}"
+								value="#{msgRecurso.lbl_menu_mtto_tbserviciocup}"
+								icon="pi pi-tags"
+								outcome="/pages/mtto/tbserviciocup/tbserviciocup.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_tbaseguradora"
+								style="color:#{usuario.evaluarPermiso('mtto_tbaseguradora') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_tbaseguradora')}"
+								value="#{msgRecurso.lbl_menu_mtto_tbaseguradora}"
+								icon="pi pi-shield"
+								outcome="/pages/mtto/tbaseguradora/tbaseguradora.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_tbmedico"
+								style="color:#{usuario.evaluarPermiso('mtto_tbmedico') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_tbmedico')}"
+								value="#{msgRecurso.lbl_menu_mtto_tbmedico}"
+								icon="pi pi-calendar-plus"
+								outcome="/pages/mtto/tbmedico/tbmedico.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_tbmecanismoverificacion"
+								style="color:#{usuario.evaluarPermiso('mtto_tbmecanismoverificacion') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_tbmecanismoverificacion')}"
+								value="#{msgRecurso.lbl_menu_mtto_tbmecanismoverificacion}"
+								icon="pi pi-sliders-h"
+								outcome="/pages/mtto/tbmecanismoverificacion/tbmecanismoverificacion.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_tbpaquete"
+								style="color:#{usuario.evaluarPermiso('mtto_tbpaquete') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_tbpaquete')}"
+								value="#{msgRecurso.lbl_menu_mtto_tbpaquete}" icon="pi pi-inbox"
+								outcome="/pages/mtto/tbpaquete/tbpaquete.xhtml"
+								onclick="PF('bui').show();return true;" />
+						</p:submenu>
+
+						<p:submenu id="mtto_laboratorio"
+							label="#{msgRecurso.lbl_menu_laboratorio}" icon="pi pi-search">
+							<p:menuitem id="mtto_tbunidad"
+								style="color:#{usuario.evaluarPermiso('mtto_tbunidad') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_tbunidad')}"
+								value="#{msgRecurso.lbl_menu_mtto_tbunidad}"
+								icon="pi pi-sort-numeric-down"
+								outcome="/pages/mtto/tbunidad/tbunidad.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_tblaboratorio"
+								style="color:#{usuario.evaluarPermiso('mtto_tblaboratorio') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_tblaboratorio')}"
+								value="#{msgRecurso.lbl_menu_mtto_tblaboratorio}"
+								icon="pi pi-chart-bar"
+								outcome="/pages/mtto/tblaboratorio/tblaboratorio.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_tbexamen"
+								style="color:#{usuario.evaluarPermiso('mtto_tbexamen') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_tbexamen')}"
+								value="#{msgRecurso.lbl_menu_mtto_tbexamen}" icon="pi pi-copy"
+								outcome="/pages/mtto/tbexamen/tbexamen.xhtml"
+								onclick="PF('bui').show();return true;" />
+						</p:submenu>
+
+						<p:submenu id="mtto_contratacion"
+							label="#{msgRecurso.lbl_menu_contratacion}" icon="pi pi-inbox">
+							<p:menuitem id="mtto_tbfestivo"
+								style="color:#{usuario.evaluarPermiso('mtto_tbfestivo') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_tbfestivo')}"
+								value="#{msgRecurso.lbl_menu_mtto_tbfestivo}"
+								icon="pi pi-calendar-minus"
+								outcome="/pages/mtto/tbfestivo/tbfestivo.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_tbtipoconsultorio"
+								style="color:#{usuario.evaluarPermiso('mtto_tbtipoconsultorio') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_tbtipoconsultorio')}"
+								value="#{msgRecurso.lbl_menu_mtto_tbtipoconsultorio}"
+								icon="pi pi-bookmark"
+								outcome="/pages/mtto/tbtipoconsultorio/tbtipoconsultorio.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_ctinfraestructura"
+								style="color:#{usuario.evaluarPermiso('mtto_ctinfraestructura') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_ctinfraestructura')}"
+								value="#{msgRecurso.lbl_menu_mtto_ctinfraestructura}"
+								icon="pi pi-th-large"
+								outcome="/pages/mtto/ctinfraestructura/ctinfraestructura.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_ctturnomedico"
+								style="color:#{usuario.evaluarPermiso('mtto_ctturnomedico') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_ctturnomedico')}"
+								value="#{msgRecurso.lbl_menu_mtto_ctturnomedico}"
+								icon="pi pi-clock"
+								outcome="/pages/mtto/ctturnomedico/ctturnomedico.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_tbhorario"
+								style="color:#{usuario.evaluarPermiso('mtto_tbhorario') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_tbhorario')}"
+								value="#{msgRecurso.lbl_menu_mtto_tbhorario}"
+								icon="pi pi-calendar"
+								outcome="/pages/mtto/tbhorario/tbhorario.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_tbperiodo"
+								style="color:#{usuario.evaluarPermiso('mtto_tbperiodo') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_tbperiodo')}"
+								value="#{msgRecurso.lbl_menu_mtto_tbperiodo_agendamiento}"
+								icon="pi pi-book"
+								outcome="/pages/mtto/tbperiodo/tbperiodo.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_ctcontrato"
+								style="color:#{usuario.evaluarPermiso('mtto_ctcontrato') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_ctcontrato')}"
+								value="#{msgRecurso.lbl_menu_mtto_ctcontrato}"
+								icon="pi pi-folder"
+								outcome="/pages/mtto/ctcontrato/ctcontrato.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_ctcontratoperiodo"
+								style="color:#{usuario.evaluarPermiso('mtto_ctcontratoperiodo') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_ctcontratoperiodo')}"
+								value="#{msgRecurso.lbl_menu_mtto_ctcontratoperiodo}"
+								icon="pi pi-envelope"
+								outcome="/pages/mtto/ctcontratoperiodo/ctcontratoperiodo.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_ctprogramaservicio"
+								style="color:#{usuario.evaluarPermiso('mtto_ctprogramaservicio') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_ctprogramaservicio')}"
+								value="#{msgRecurso.lbl_menu_mtto_ctprogramaservicio}"
+								icon="pi pi-briefcase"
+								outcome="/pages/mtto/ctprogramaservicio/ctprogramaservicio.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_tbdisponibilidad"
+								style="color:#{usuario.evaluarPermiso('mtto_tbdisponibilidad') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_tbdisponibilidad')}"
+								value="#{msgRecurso.lbl_menu_mtto_tbdisponibilidad}"
+								icon="pi pi-calendar-plus"
+								outcome="/pages/mtto/tbdisponibilidad/tbdisponibilidad.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_tbglosa"
+								style="color:#{usuario.evaluarPermiso('mtto_tbglosa') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_tbglosa')}"
+								value="#{msgRecurso.lbl_menu_mtto_tbglosa}"
+								icon="pi pi-credit-card"
+								outcome="/pages/mtto/tbglosa/tbglosa.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_tbcopagos"
+								style="color:#{usuario.evaluarPermiso('mtto_tbcopagos') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_tbcopagos')}"
+								value="#{msgRecurso.lbl_menu_mtto_tbcopagos}"
+								icon="pi pi-wallet"
+								outcome="/pages/mtto/tbcopagos/tbcopagos.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_tbcuotasmoderadoras"
+								style="color:#{usuario.evaluarPermiso('mtto_tbcuotasmoderadoras') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_tbcuotasmoderadoras')}"
+								value="#{msgRecurso.lbl_menu_mtto_tbcuotasmoderadoras}"
+								icon="pi pi-dollar"
+								outcome="/pages/mtto/tbcuotasmoderadoras/tbcuotasmoderadoras.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_tb_tipo_afiliacion"
+								style="color:#{usuario.evaluarPermiso('mtto_tb_tipo_afiliacion') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_tb_tipo_afiliacion')}"
+								value="#{msgRecurso.lbl_menu_mtto_tbtipoafiliacion}"
+								icon="pi pi-tags"
+								outcome="/pages/mtto/tbtipoafiliacion/tbtipoafiliacion.xhtml"
+								onclick="PF('bui').show();return true;" />
+
+						</p:submenu>
+						<p:submenu id="mtto_contabilidad"
+							label="#{msgRecurso.lbl_menu_contabilidad}" icon="pi pi-calendar">
+							<p:menuitem id="contable_sccuenta"
+								style="color:#{usuario.evaluarPermiso('contable_sccuenta') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('contable_sccuenta')}"
+								value="#{msgRecurso.lbl_menu_contable_sccuenta}"
+								icon="pi pi-credit-card"
+								outcome="/pages/contable/sccuenta/sccuenta.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="contable_scvaloriva"
+								style="color:#{usuario.evaluarPermiso('contable_scvaloriva') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('contable_scvaloriva')}"
+								value="#{msgRecurso.lbl_menu_contable_scvaloriva}"
+								icon="pi pi-wallet"
+								outcome="/pages/contable/scvaloriva/scvaloriva.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="contable_scvalorretefuente"
+								style="color:#{usuario.evaluarPermiso('contable_scvalorretefuente') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('contable_scvalorretefuente')}"
+								value="#{msgRecurso.lbl_menu_contable_scvalorretefuente}"
+								icon="pi pi-sort-numeric-up"
+								outcome="/pages/contable/scvalorretefuente/scvalorretefuente.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="contable_scvalorreteica"
+								style="color:#{usuario.evaluarPermiso('contable_scvalorreteica') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('contable_scvalorreteica')}"
+								value="#{msgRecurso.lbl_menu_contable_scvalorreteica}"
+								icon="pi pi-sort-numeric-up-alt"
+								outcome="/pages/contable/scvalorreteica/scvalorreteica.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="contable_sctercero"
+								style="color:#{usuario.evaluarPermiso('contable_sctercero') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('contable_sctercero')}"
+								value="#{msgRecurso.lbl_menu_contable_sctercero}"
+								icon="pi pi-users"
+								outcome="/pages/contable/sctercero/sctercero.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="contable_scsalariominimo"
+								style="color:#{usuario.evaluarPermiso('contable_scsalariominimo') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('contable_scsalariominimo')}"
+								value="#{msgRecurso.lbl_menu_contable_scsalariominimo}"
+								icon="pi pi-money-bill"
+								outcome="/pages/contable/scsalariominimo/scsalariominimo.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="contable_sccentrocosto"
+								style="color:#{usuario.evaluarPermiso('contable_sccentrocosto') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('contable_sccentrocosto')}"
+								value="#{msgRecurso.lbl_menu_contable_sccentrocosto}"
+								icon="pi pi-sitemap"
+								outcome="/pages/contable/sccentrocosto/sccentrocosto.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="contable_sccontabiliza"
+								style="color:#{usuario.evaluarPermiso('contable_sccontabiliza') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('contable_sccontabiliza')}"
+								value="#{msgRecurso.lbl_menu_contable_sccontabiliza}"
+								icon="pi pi-cloud-download"
+								outcome="/pages/contable/sccontabiliza/sccontabiliza.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="contable_scformapago"
+								style="color:#{usuario.evaluarPermiso('contable_scformapago') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('contable_scformapago')}"
+								value="#{msgRecurso.lbl_menu_contable_scformapago}"
+								icon="pi pi-th-large"
+								outcome="/pages/contable/scformapago/scformapago.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="contable_scproducto"
+								style="color:#{usuario.evaluarPermiso('contable_scproducto') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('contable_scproducto')}"
+								value="#{msgRecurso.lbl_menu_contable_scproducto}"
+								icon="pi pi-shopping-cart"
+								outcome="/pages/contable/scproducto/scproducto.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="contable_sctipofactura"
+								style="color:#{usuario.evaluarPermiso('contable_sctipofactura') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('contable_sctipofactura')}"
+								value="#{msgRecurso.lbl_menu_contable_sctipofactura}"
+								icon="pi pi-calendar"
+								outcome="/pages/contable/sctipofactura/sctipofactura.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="contable_tb_bancos"
+								style="color:#{usuario.evaluarPermiso('contable_mtto_tb_bank') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('contable_mtto_tb_bank')}"
+								value="#{msgRecurso.lbl_menu_pages_mtto_bank}"
+								icon="pi pi-dollar" outcome="/pages/mtto/bank/bank.xhtml"
+								onclick="PF('bui').show();return true;" />
+								
+							<p:menuitem id="concepto_movimiento"
+								style="color:#{usuario.evaluarPermiso('concepto_movimiento') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('concepto_movimiento')}"
+								value="#{msgRecurso.lbl_pages_mtto_concepto_movimiento_encabezado}" 
+								icon="pi pi-sitemap"
+								outcome="/pages/contable/concepto_movimiento/concepto_movimiento.xhtml"
+								onclick="PF('bui').show();return true;" />
+								
+							<p:menuitem id="cuenta_cobrar"
+								style="color:#{usuario.evaluarPermiso('cuenta_cobrar') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('cuenta_cobrar')}"
+								value="#{msgRecurso.lbl_pages_mtto_cuenta_cobrar_encabezado}" icon="pi pi-credit-card"
+								outcome="/pages/contable/cuenta_cobrar/cuenta_cobrar.xhtml"
+								onclick="PF('bui').show();return true;" />
+								
+							<p:menuitem id="recibo_caja"
+								style="color:#{usuario.evaluarPermiso('recibo_caja') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('recibo_caja')}"
+								value="#{msgRecurso.lbl_pages_mtto_cuenta_cobrar_recibo_caja}" icon="pi pi-wallet"
+								outcome="/pages/contable/recibo_caja/recibo_caja.xhtml"
+								onclick="PF('bui').show();return true;" />
+								
+								
+							<p:menuitem id="mtto_scDisponible"
+								style="color:#{usuario.evaluarPermiso('contable_mtto_tb_bank') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('contable_mtto_tb_bank')}"
+								value="#{msgRecurso.lbl_menu_pages_mtto_disponible}"
+								icon="pi pi-check-square"
+								outcome="/pages/mtto/disponible/disponible.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="menuDisponibleTraslado"
+								style="color:#{usuario.evaluarPermiso('menuDisponibleTraslado') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('menuDisponibleTraslado')}"
+								value="#{msgRecurso.lbl_pages_mtto_sc_disponible_traslado_titulo}"
+								icon="pi pi-shopping-cart"
+								outcome="/pages/contable/disponible_traslado/disponible_traslado.xhtml"
+								onclick="PF('bui').show();return true;" />
+								
+							<p:menuitem id="cuenta_cobrar_disponible"
+								style="color:#{usuario.evaluarPermiso('cuenta_cobrar_disponible') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								value="#{msgRecurso.lbl_pages_mtto_cuenta_cobrar_disponible_encabezado}"
+								disabled="#{!usuario.evaluarPermiso('cuenta_cobrar_disponible')}" 
+								icon="pi pi-chart-line"
+								outcome="/pages/contable/cuenta_cobrar/cuenta_cobrar.xhtml?TIPO_VISTA=DISPONIBLE"
+								onclick="PF('bui').show();return true;"/>
+								
+					
+							<p:menuitem id="contable_topes"
+								style="color:#{usuario.evaluarPermiso('contable_mtto_tb_bank') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('contable_mtto_tb_bank')}"
+								value="#{msgRecurso.lbl_reporte_contable_topes}"
+								icon="pi pi-pause"
+								outcome="/pages/contable/reporte_contable_topes/reporte_contable_topes.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="contable_magneticos"
+								style="color:#{usuario.evaluarPermiso('contable_mtto_tb_bank') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('contable_mtto_tb_bank')}"
+								value="#{msgRecurso.lbl_menu_contable_medios_magneticos}"
+								icon="pi pi-file-o"
+								outcome="/pages/contable/formato_medio_magnetico/formato_medio_magnetico.xhtml"
+								onclick="PF('bui').show();return true;" />
+						</p:submenu>
+
+						<p:submenu id="mtto_nomina" label="#{msgRecurso.lbl_menu_nomina}"
+							icon="pi pi-dollar">
+							<p:menuitem id="contable_scconceptonomina"
+								style="color:#{usuario.evaluarPermiso('contable_scconceptonomina') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('contable_scconceptonomina')}"
+								value="#{msgRecurso.lbl_menu_contable_scconceptonomina}"
+								icon="pi pi-book"
+								outcome="/pages/contable/scconceptonomina/scconceptonomina.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="contable_scjornadalaboral"
+								style="color:#{usuario.evaluarPermiso('contable_scjornadalaboral') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('contable_scjornadalaboral')}"
+								value="#{msgRecurso.lbl_menu_contable_scjornadalaboral}"
+								icon="pi pi-clock"
+								outcome="/pages/contable/scjornadalaboral/scjornadalaboral.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="contable_sctipocotizante"
+								style="color:#{usuario.evaluarPermiso('contable_sctipocotizante') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('contable_sctipocotizante')}"
+								value="#{msgRecurso.lbl_menu_contable_sctipocotizante}"
+								icon="pi pi-user-edit"
+								outcome="/pages/contable/sctipocotizante/sctipocotizante.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="contable_sccargo"
+								style="color:#{usuario.evaluarPermiso('contable_sccargo') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('contable_sccargo')}"
+								value="#{msgRecurso.lbl_menu_contable_sccargo}"
+								icon="pi pi-bookmark"
+								outcome="/pages/contable/sccargo/sccargo.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="contable_scconfiguracionsalarial"
+								style="color:#{usuario.evaluarPermiso('contable_scconfiguracionsalarial') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('contable_scconfiguracionsalarial')}"
+								value="#{msgRecurso.lbl_menu_contable_scconfiguracionsalarial}"
+								icon="pi pi-money-bill"
+								outcome="/pages/contable/scconfiguracionsalarial/scconfiguracionsalarial.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="contable_scextralaboral"
+								style="color:#{usuario.evaluarPermiso('contable_scextralaboral') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('contable_scextralaboral')}"
+								value="#{msgRecurso.lbl_menu_contable_scextralaboral}"
+								icon="pi pi-flag"
+								outcome="/pages/contable/scextralaboral/scextralaboral.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="contable_scprofesion"
+								style="color:#{usuario.evaluarPermiso('contable_scprofesion') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('contable_scprofesion')}"
+								value="#{msgRecurso.lbl_menu_contable_scprofesion}"
+								icon="pi pi-check-circle"
+								outcome="/pages/contable/scprofesion/scprofesion.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="contable_scfondo"
+								style="color:#{usuario.evaluarPermiso('contable_scfondo') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('contable_scfondo')}"
+								value="#{msgRecurso.lbl_menu_contable_scfondo}"
+								icon="pi pi-wallet"
+								outcome="/pages/contable/scfondo/scfondo.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="contable_scuvt"
+								style="color:#{usuario.evaluarPermiso('contable_scuvt') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('contable_scuvt')}"
+								value="#{msgRecurso.lbl_menu_contable_scuvt}"
+								icon="pi pi-sort-numeric-up"
+								outcome="/pages/contable/scuvt/scuvt.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="contable_scretencionsalario"
+								style="color:#{usuario.evaluarPermiso('contable_scretencionsalario') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('contable_scretencionsalario')}"
+								value="#{msgRecurso.lbl_menu_contable_scretencionsalario}"
+								icon="pi pi-credit-card"
+								outcome="/pages/contable/scretencionsalario/scretencionsalario.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="concepto_nomina"
+								style="color:#{usuario.evaluarPermiso('concepto_nomina') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('concepto_nomina')}"
+								value="#{msgRecurso.lbl_pages_mtto_concepto_nomina_title}"
+								icon="pi pi-map"
+								outcome="/pages/mtto/concepto_nomina/concepto_nomina.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="costo_nomina"
+								style="color:#{usuario.evaluarPermiso('costo_nomina') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('costo_nomina')}"
+								value="#{msgRecurso.lbl_pages_mtto_costo_nomina_title}"
+								icon="pi pi-dollar"
+								outcome="/pages/mtto/costo_nomina/costo_nomina.xhtml"
+								onclick="PF('bui').show();return true;" />
+						</p:submenu>
+
+						<p:submenu id="mtto_varios" label="#{msgRecurso.lbl_menu_varios}"
+							icon="pi pi-share-alt">
+							<p:menuitem id="mtto_tbmunicipios"
+								style="color:#{usuario.evaluarPermiso('mtto_tbmunicipios') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_tbmunicipios')}"
+								value="#{msgRecurso.lbl_menu_mtto_tbmunicipio}" icon="pi pi-map"
+								outcome="/pages/mtto/tbmunicipios/tbmunicipios.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_tbtipoidentificacion"
+								style="color:#{usuario.evaluarPermiso('mtto_tbtipoidentificacion') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_tbtipoidentificacion')}"
+								value="#{msgRecurso.lbl_menu_mtto_tbtipoidentificacion}"
+								icon="pi pi-credit-card"
+								outcome="/pages/mtto/tbtipoidentificacion/tbtipoidentificacion.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_tbetnia"
+								style="color:#{usuario.evaluarPermiso('tb_etnia') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('tb_etnia')}"
+								value="#{msgRecurso.lbl_menu_mtto_tbetnia}" icon="pi pi-users"
+								outcome="/pages/mtto/tbetnia/tbetnia.xhtml"
+								onclick="PF('bui').show();return true;" />
+								
+							<p:menuitem id="mtto_tborganizacionindigena"
+								style="color:#{usuario.evaluarPermiso('menuOrganizacionIndigena') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('menuOrganizacionIndigena')}"
+								value="#{msgRecurso.lbl_pages_mtto_tborganizacionindigena_titulo_menu}" icon="pi pi-bell"
+								outcome="/pages/mtto/tborganizacionindigena/tborganizacionindigena.xhtml"
+								onclick="PF('bui').show();return true;" />
+							
+							<p:menuitem id="mtto_tbtiporesguardo"
+								style="color:#{usuario.evaluarPermiso('menuTipoResguardo') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('menuTipoResguardo')}"
+								value="#{msgRecurso.lbl_pages_mtto_tbtiporesguardo_titulo_menu}" icon="pi pi-envelope"
+								outcome="/pages/mtto/tbtiporesguardo/tbtiporesguardo.xhtml"
+								onclick="PF('bui').show();return true;" />
+								
+							<p:menuitem id="mtto_tbresguardoindigena"
+								style="color:#{usuario.evaluarPermiso('menuResguardoIndigena') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('menuResguardoIndigena')}"
+								value="#{msgRecurso.enumerado_modulo_tb_resguardo_indigena}" icon="pi pi-caret-up"
+								outcome="/pages/mtto/tbresguardoindigena/tbresguardoindigena.xhtml"
+								onclick="PF('bui').show();return true;" />
+								
+							<p:menuitem id="mtto_tbcomunidadindigena"
+								style="color:#{usuario.evaluarPermiso('menuComunidadIndigena') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('menuComunidadIndigena')}"
+								value="#{msgRecurso.enumerado_modulo_tb_comunidad_indigena}" icon="pi pi-map"
+								outcome="/pages/mtto/tbcomunidadindigena/tbcomunidadindigena.xhtml"
+								onclick="PF('bui').show();return true;" />
+								
+								
+							<p:menuitem id="mtto_tbniveleducativo"
+								style="color:#{usuario.evaluarPermiso('tb_nivel_educativo') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('tb_nivel_educativo')}"
+								value="#{msgRecurso.lbl_menu_mtto_tbniveleducativo}"
+								icon="pi pi-book"
+								outcome="/pages/mtto/tbniveleducativo/tbniveleducativo.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_tbocupacion"
+								style="color:#{usuario.evaluarPermiso('tb_ocupacion') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('tb_ocupacion')}"
+								value="#{msgRecurso.lbl_menu_mtto_tbocupacion}"
+								icon="pi pi-briefcase"
+								outcome="/pages/mtto/tbocupacion/tbocupacion.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_preferencia"
+								style="color:#{usuario.evaluarPermiso('tb_preferencia') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('tb_preferencia')}"
+								value="#{msgRecurso.lbl_menu_mtto_tb_preferencia}"
+								icon="pi pi-sliders-v"
+								outcome="/pages/mtto/tbpreferenciacontable/tbpreferenciacontable.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_tbPreference"
+								style="color:#{usuario.evaluarPermiso('mtto_tbPreference') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_tbPreference')}"
+								value="#{msgRecurso.lbl_pages_mtto_preference_title_general}"
+								icon="pi pi-briefcase"
+								outcome="/pages/mtto/preferences/preferences.xhtml"
+								onclick="PF('bui').show();return true;" />
+						</p:submenu>
+
+						<p:submenu id="mtto_sivigila"
+							label="#{msgRecurso.lbl_menu_Atencion}" icon="pi pi-directions">
+							<p:menuitem id="mtto_sivigila_semana"
+								style="color:#{usuario.evaluarPermiso('tb_sivigila_semana') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('tb_sivigila_semana')}"
+								value="#{msgRecurso.lbl_menu_mtto_tb_sivigila_semana}"
+								icon="pi pi-calendar-minus"
+								outcome="/pages/mtto/tbsivigilasemana/tbsivigilasemana.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_sivigila_evento_vigilancia"
+								style="color:#{usuario.evaluarPermiso('tb_sivigila_evento_vigilancia') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('tb_sivigila_evento_vigilancia')}"
+								value="#{msgRecurso.lbl_menu_mtto_tb_sivigila_evento_vigilancia}"
+								icon="pi pi-tags"
+								outcome="/pages/mtto/tbsivigilaeventovigilancia/tbsivigilaeventovigilancia.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_tbcondicionriesgo202"
+								style="color:#{usuario.evaluarPermiso('mtto_tbcondicionriesgo202') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_tbcondicionriesgo202')}"
+								value="#{msgRecurso.lbl_menu_mtto_tbcondicionresgo202}"
+								icon="pi pi-check-square"
+								outcome="/pages/mtto/tbcondicionriesgo202/tbcondicionriesgo202.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_tbperiodoriesgo"
+								style="color:#{usuario.evaluarPermiso('tb_periodo_riesgo') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('tb_periodo_riesgo')}"
+								value="#{msgRecurso.lbl_menu_mtto_tbperiodoriesgo}"
+								icon="pi pi-exclamation-triangle"
+								outcome="/pages/mtto/tbperiodoriesgo/tbperiodoriesgo.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_configuarcion_riesgo_202_validacion"
+								style="color:#{usuario.evaluarPermiso('tb_condicion_riesgo_202_validacion') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('tb_condicion_riesgo_202_validacion')}"
+								value="#{msgRecurso.enumerado_modulo_condicion_riesgo_202_validacion}"
+								icon="pi pi-sliders-h"
+								outcome="/pages/mtto/tbconfiguracionriesgo202validacion/tbconfiguracionriesgo202validacion.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_ruta_atencion"
+								style="color:#{usuario.evaluarPermiso('tb_ruta_atencion') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('tb_ruta_atencion')}"
+								value="#{msgRecurso.lbl_menu_mtto_tb_ruta_atencion}"
+								icon="pi pi-flag"
+								outcome="/pages/mtto/tbrutaatencion/tbrutaatencion.xhtml"
+								onclick="PF('bui').show();return true;" />
+						</p:submenu>
+					</p:submenu>
+					<p:submenu label="#{msgRecurso.lbl_menu_paciente}"
+						icon="icon-collections">
+						<p:submenu id="mtto_paciente"
+							label="#{msgRecurso.lbl_menu_paciente}" icon="pi pi-users">
+							<p:menuitem id="paciente_ctpacientecargue"
+								style="color:#{usuario.evaluarPermiso('paciente_ctpacientecargue') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('paciente_ctpacientecargue')}"
+								value="#{msgRecurso.lbl_menu_paciente_carguemasivo}"
+								icon="pi pi-cloud-upload"
+								outcome="/pages/paciente/carguepaciente/carguepaciente.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="paciente_ctpaciente"
+								style="color:#{usuario.evaluarPermiso('paciente_ctpaciente') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('paciente_ctpaciente')}"
+								value="#{msgRecurso.lbl_menu_paciente_paciente}"
+								icon="pi pi-user-plus"
+								outcome="/pages/paciente/ctpaciente/ctpaciente.xhtml"
+								onclick="PF('bui').show();return true;" />
+						</p:submenu>
+					</p:submenu>
+
+					<p:submenu id="inidice" label="#{msgRecurso.lbl_menu_indices}">
+						<p:submenu label="#{msgRecurso.lbl_menu_indices}"
+							icon="pi pi-bookmark">
+							<p:menuitem id="indice_tbmodulo"
+								style="color:#{usuario.evaluarPermiso('indice_tbmodulo') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('indice_tbmodulo')}"
+								value="#{msgRecurso.lbl_menu_indice_modulo}"
+								icon="pi pi-th-large"
+								outcome="/pages/indice/tbmodulo/tbmodulo.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="indice_tbsubmodulo"
+								style="color:#{usuario.evaluarPermiso('indice_tbsubmodulo') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('indice_tbsubmodulo')}"
+								value="#{msgRecurso.lbl_menu_indice_submodulo}"
+								icon="pi pi-clone"
+								outcome="/pages/indice/tbsubmodulo/tbsubmodulo.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="indice_tbindice"
+								style="color:#{usuario.evaluarPermiso('indice_tbindice') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('indice_tbindice')}"
+								value="#{msgRecurso.lbl_menu_indice_indice}" icon="pi pi-info"
+								outcome="/pages/indice/tbindice/tbindice.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="indice_tbconjunto"
+								style="color:#{usuario.evaluarPermiso('indice_tbconjunto') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('indice_tbconjunto')}"
+								value="#{msgRecurso.lbl_menu_indice_conjunto}"
+								icon="pi pi-info-circle"
+								outcome="/pages/indice/tbconjuntoencabezado/tbconjuntoencabezado.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="indice_tbhce"
+								style="color:#{usuario.evaluarPermiso('indice_tbhce') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('indice_tbhce')}"
+								value="#{msgRecurso.lbl_menu_mtto_tbhce}" icon="pi pi-cog"
+								outcome="/pages/mtto/tbhce/tbhce.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="indice_tbhcetipo"
+								style="color:#{usuario.evaluarPermiso('indice_tbhcetipo') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('indice_tbhcetipo')}"
+								value="#{msgRecurso.lbl_menu_mtto_tbhcetipo}" icon="pi pi-tags"
+								outcome="/pages/mtto/tbhcetipohistoria/tbhcetipohistoria.xhtml"
+								onclick="PF('bui').show();return true;" />
+						</p:submenu>
+					</p:submenu>
+
+					<p:submenu id="agenda" label="#{msgRecurso.lbl_menu_agenda}">
+						<p:submenu label="#{msgRecurso.lbl_menu_agenda}" icon="pi pi-book">
+							<p:menuitem id="agenda_ctcita"
+								style="color:#{usuario.evaluarPermiso('agenda_ctcita') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('agenda_ctcita')}"
+								value="#{msgRecurso.lbl_menu_agenda_citas}"
+								icon="pi pi-calendar"
+								outcome="/pages/agenda/ctcita/ctcita.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="agenda_citasprogramadas"
+								style="color:#{usuario.evaluarPermiso('agenda_citasprogramadas') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('agenda_citasprogramadas')}"
+								value="#{msgRecurso.lbl_menu_agenda_citasprogramadas}"
+								icon="pi pi-calendar-plus"
+								outcome="/pages/agenda/citasprogramadas/citasprogramadas.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="agenda_ctcita_urgencia"
+								style="color:#{usuario.evaluarPermiso('agenda_ctcita_urgencia') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('agenda_ctcita_urgencia')}"
+								value="#{msgRecurso.lbl_menu_agenda_citas_noprogramadas}"
+								icon="pi pi-calendar-minus"
+								outcome="/pages/agenda/ctcita/ctcita.xhtml?TIPO_CITA=URGENCIA"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="agenda_ctcitareagendar"
+								style="color:#{usuario.evaluarPermiso('agenda_ctcitareagendar') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('agenda_ctcitareagendar')}"
+								value="#{msgRecurso.lbl_menu_agenda_citas_reagendamiento}"
+								icon="pi pi-calendar-minus"
+								outcome="/pages/agenda/citasprogramadasreagendar/citasprogramadasreagendar.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="agenda_ctcita_reporte"
+								style="color:#{usuario.evaluarPermiso('agenda_ctcita_reporte') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('agenda_ctcita_reporte')}"
+								value="#{msgRecurso.lbl_menu_agenda_citas_reportecita}"
+								icon="pi pi-calendar-minus"
+								outcome="/pages/agenda/ctcita/citasreportecita.xhtml"
+								onclick="PF('bui').show();return true;" />
+
+						</p:submenu>
+					</p:submenu>
+
+					<p:submenu id="consulta" label="#{msgRecurso.lbl_menu_consultas}">
+						<p:submenu label="#{msgRecurso.lbl_menu_consultas}"
+							icon="pi pi-search">
+							<p:menuitem id="consulta_hce"
+								value="#{msgRecurso.lbl_menu_consulta_hce}"
+								icon="pi pi-search-plus"
+								outcome="/pages/paciente/ctpaciente/ctpaciente.xhtml?TIPO=consulta"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="seguimientoPaciente"
+								style="color:#{usuario.evaluarPermiso('seguimientoPaciente') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('seguimientoPaciente')}"
+								value="#{msgRecurso.lbl_pages_mtto_consulta_seguimiento_paciente}"
+								icon="pi pi-id-card"
+								outcome="/pages/paciente/ctpaciente/seguimientoPaciente.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="reportes_demanda_inducida"
+								style="color:#{usuario.evaluarPermiso('reportes_demanda_inducida') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('reportes_demanda_inducida')}"
+								value="#{msgRecurso.lbl_pages_paciente_ctpacienterutaatencion_titulo}"
+								icon="pi pi-align-justify"
+								outcome="/pages/paciente/ctpaciente/ctpacienterutaatencion.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="carguesoporteatencion"
+								style="color:#{usuario.evaluarPermiso('carguesoporteatencion') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('carguesoporteatencion')}"
+								value="#{msgRecurso.enumerado_modulo_cargue_soporte_atencion}"
+								icon="pi pi-copy"
+								outcome="/pages/mtto/cargesoporteatencion/cargesoporteatencion.xhtml"
+								onclick="PF('bui').show();return true;" />
+						</p:submenu>
+					</p:submenu>
+
+					<p:submenu id="registro_resultado"
+						label="#{msgRecurso.lbl_menu_registro_resultado}">
+						<p:submenu label="#{msgRecurso.lbl_menu_registro_resultado}"
+							icon="pi pi-list">
+							<p:menuitem id="registro_resultado_paciente"
+								style="color:#{usuario.evaluarPermiso('registro_resultado_paciente') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('registro_resultado_paciente')}"
+								value="#{msgRecurso.lbl_menu_registro_resultado}"
+								icon="pi pi-users"
+								outcome="/pages/paciente/ctpaciente/ctpaciente.xhtml?TIPO=registro_resultado"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="registro_nataadministrativa_paciente"
+								style="color:#{usuario.evaluarPermiso('registro_nataadministrativa_paciente') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('registro_nataadministrativa_paciente')}"
+								value="#{msgRecurso.lbl_menu_nota_administrativa}"
+								icon="pi pi-file"
+								outcome="/pages/paciente/ctpaciente/ctpaciente.xhtml?TIPO=nota_administrativa"
+								onclick="PF('bui').show();return true;" />
+						</p:submenu>
+					</p:submenu>
+
+					<p:submenu id="rrhh"
+						label="#{msgRecurso.lbl_menu_recursos_humanos}">
+						<p:submenu label="#{msgRecurso.lbl_menu_recursos_humanos}"
+							icon="pi pi-user-plus">
+							<p:menuitem id="rrhh_scempleado"
+								style="color:#{usuario.evaluarPermiso('rrhh_scempleado') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('rrhh_scempleado')}"
+								value="#{msgRecurso.lbl_menu_contable_scempleado}"
+								icon="pi pi-users"
+								outcome="/pages/contable/scempleado/scempleado.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="rrhh_scprestamoempleado"
+								style="color:#{usuario.evaluarPermiso('rrhh_scprestamoempleado') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('rrhh_scprestamoempleado')}"
+								value="#{msgRecurso.lbl_menu_contable_scprestamoempleado}"
+								icon="pi pi-money-bill"
+								outcome="/pages/contable/scprestamoempleado/scprestamoempleado.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="rrhh_scconceptoempleado"
+								style="color:#{usuario.evaluarPermiso('rrhh_scconceptoempleado') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('rrhh_scconceptoempleado')}"
+								value="#{msgRecurso.lbl_menu_contable_scnovedades}"
+								icon="pi pi-map"
+								outcome="/pages/contable/scconceptoempleado/scconceptoempleado.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="rrhh_scempleadovacacion"
+								style="color:#{usuario.evaluarPermiso('rrhh_scempleadovacacion') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('rrhh_scempleadovacacion')}"
+								value="#{msgRecurso.lbl_menu_contable_scempleadovacacion}"
+								icon="pi pi-calendar-minus"
+								outcome="/pages/contable/scempleadovacacion/scempleadovacacion.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="rrhh_scconsignacioncesantias"
+								style="color:#{usuario.evaluarPermiso('rrhh_scconsignacioncesantias') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('rrhh_scconsignacioncesantias')}"
+								value="#{msgRecurso.lbl_menu_contable_scconsignacioncesantias}"
+								icon="pi pi-wallet"
+								outcome="/pages/contable/consignacioncesantias/consignacioncesantias.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="rrhh_scaumentosueldoempleado"
+								style="color:#{usuario.evaluarPermiso('rrhh_scaumentosueldoempleado') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('rrhh_scaumentosueldoempleado')}"
+								value="#{msgRecurso.lbl_menu_contable_scaumentosueldoempleado}"
+								icon="pi pi-dollar"
+								outcome="/pages/contable/scaumentosueldos/scaumentosueldos.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="rrhh_scproveedores"
+								style="color:#{usuario.evaluarPermiso('rrhh_scproveedores') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('rrhh_scproveedores')}"
+								value="#{msgRecurso.lbl_menu_contable_scproveedores}"
+								icon="pi pi-sitemap"
+								outcome="/pages/contable/scproveedores/scproveedores.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="menuResolucion220"
+								style="color:#{usuario.evaluarPermiso('menuResolucion220') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('menuResolucion220')}"
+								value="#{msgRecurso.lbl_menu_contable_reporte220}"
+								icon="pi pi-sitemap"
+								outcome="/pages/contable/resolucion_220/resolucion220.xhtml"
+								onclick="PF('bui').show();return true;" />
+						</p:submenu>
+						<p:submenu
+							label="#{msgRecurso.lbl_menu_contable_sccontratoempleado}"
+							icon="pi pi-folder-open">
+							<p:menuitem id="rrhh_sccontratoempleado"
+								style="color:#{usuario.evaluarPermiso('rrhh_sccontratoempleado') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('rrhh_sccontratoempleado')}"
+								value="#{msgRecurso.lbl_menu_contable_sccontratoempleado}"
+								icon="pi pi-folder-open"
+								outcome="/pages/contable/sccontratoempleado/sccontratoempleado.xhtml?request=1"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="sc_revision_contrato_empleado"
+								style="color:#{usuario.evaluarPermiso('sc_revision_contrato_empleado') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('sc_revision_contrato_empleado')}"
+								value="#{msgRecurso.lbl_menu_contable_screvisioncontratoempleado}"
+								icon="pi pi-folder-open"
+								outcome="/pages/contable/sccontratoempleado/sccontratoempleado.xhtml?request=2"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="sc_revision_juridica_empleado"
+								style="color:#{usuario.evaluarPermiso('sc_revision_juridica_empleado') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('sc_revision_juridica_empleado')}"
+								value="#{msgRecurso.lbl_menu_contable_screvisionjuridicaempleado}"
+								icon="pi pi-folder-open"
+								outcome="/pages/contable/sccontratoempleado/sccontratoempleado.xhtml?request=3"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="sc_revision_gerencial_empleado"
+								style="color:#{usuario.evaluarPermiso('sc_revision_gerencial_empleado') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('sc_revision_gerencial_empleado')}"
+								value="#{msgRecurso.lbl_menu_contable_screvisiongerencialempleado}"
+								icon="pi pi-folder-open"
+								outcome="/pages/contable/sccontratoempleado/sccontratoempleado.xhtml?request=4"
+								onclick="PF('bui').show();return true;" />
+						</p:submenu>
+					</p:submenu>
+
+					<p:submenu id="nomina"
+						label="#{msgRecurso.lbl_menu_liquidacion_nomina}">
+						<p:submenu label="#{msgRecurso.lbl_menu_liquidacion_nomina}"
+							icon="pi pi-ticket ">
+							<p:menuitem id="nomina_scliquidacionnomina"
+								style="color:#{usuario.evaluarPermiso('nomina_scliquidacionnomina') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('nomina_scliquidacionnomina')}"
+								value="#{msgRecurso.lbl_menu_nomina_nomina}"
+								icon="pi pi-id-card"
+								outcome="/pages/contable/scliquidacionnomina/scliquidacionnomina.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="nomina_scliquidacionaporte"
+								style="color:#{usuario.evaluarPermiso('nomina_scliquidacionaporte') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('nomina_scliquidacionaporte')}"
+								value="#{msgRecurso.lbl_menu_nomina_aportes}"
+								icon="pi pi-credit-card"
+								outcome="/pages/contable/sccontratoempleado/sccontratoempleado.xhtml?request=2"
+								onclick="PF('bui').show();return true;" />
+						</p:submenu>
+					</p:submenu>
+
+					<p:submenu id="facturacion"
+						label="#{msgRecurso.lbl_menu_facturacion}">
+						<p:submenu label="#{msgRecurso.lbl_menu_facturacion}"
+							icon="pi pi-chart-line">
+							<p:menuitem id="facturacion_scfacturacompra_edicion"
+								style="color:#{usuario.evaluarPermiso('facturacion_scfacturacompra_edicion') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('facturacion_scfacturacompra_edicion')}"
+								value="#{msgRecurso.lbl_menu_contable_scfactura_compra}"
+								icon="pi pi-wallet"
+								outcome="/pages/contable/scfactura/edicion/scfacturacompra.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="facturacion_scfacturaventa_edicion"
+								style="color:#{usuario.evaluarPermiso('facturacion_scfacturaventa_edicion') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('facturacion_scfacturaventa_edicion')}"
+								value="#{msgRecurso.lbl_menu_contable_scfactura_venta}"
+								icon="pi pi-map"
+								outcome="/pages/contable/scfactura/edicion/scfacturaventa.xhtml"
+								onclick="PF('bui').show();return true;" />
+
+							<p:menuitem id="facturacion_scfactuanticipo_edicion"
+								style="color:#{usuario.evaluarPermiso('facturacion_scfactuanticipo_edicion') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('facturacion_scfactuanticipo_edicion')}"
+								value="#{msgRecurso.lbl_menu_contable_scfactura_anticipo}"
+								icon="pi pi-credit-card"
+								outcome="/pages/contable/scfactura/edicion/scfacturaanticipo.xhtml"
+								onclick="PF('bui').show();return true;" />
+
+							<p:menuitem id="facturacion_scfacturacompra_consulta"
+								style="color:#{usuario.evaluarPermiso('facturacion_scfacturacompra_consulta') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('facturacion_scfacturacompra_consulta')}"
+								value="#{msgRecurso.lbl_menu_contable_scfactura_compra_consulta}"
+								icon="pi pi-ticket"
+								outcome="/pages/contable/scfactura/consulta/scfacturacompra.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="facturacion_scfacturaventa_consulta"
+								style="color:#{usuario.evaluarPermiso('facturacion_scfacturaventa_consulta') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('facturacion_scfacturaventa_consulta')}"
+								value="#{msgRecurso.lbl_menu_contable_scfactura_venta_consulta}"
+								icon="pi pi-file"
+								outcome="/pages/contable/scfactura/consulta/scfacturaventa.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="facturacion_scfacturaanticipo_consulta"
+								style="color:#{usuario.evaluarPermiso('facturacion_scfacturaanticipo_consulta') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('facturacion_scfacturaanticipo_consulta')}"
+								value="#{msgRecurso.lbl_menu_contable_scfactura_anticipo_consulta}"
+								icon="pi pi-money-bill"
+								outcome="/pages/contable/scfactura/consulta/scfacturaanticipo.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="facturacion_scfacturaajuste_consulta"
+								style="color:#{usuario.evaluarPermiso('facturacion_scfacturaajuste_consulta') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('facturacion_scfacturaajuste_consulta')}"
+								value="#{msgRecurso.lbl_menu_contable_scfactura_ajuste_consulta}"
+								icon="pi pi-replay"
+								outcome="/pages/contable/scfactura/consulta/scfacturaajuste.xhtml?AJUSTE=1"
+								onclick="PF('bui').show();return true;"
+								rendered="#{usuario.swCierreFacturacion==1}" />
+							<p:menuitem id="facturacion_scfacturaventa_operaciones"
+								style="color:#{usuario.evaluarPermiso('facturacion_scfacturaventa_operaciones') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('facturacion_scfacturaventa_operaciones')}"
+								value="#{msgRecurso.lbl_menu_contable_scfactura_venta_operaciones}"
+								icon="pi pi-globe"
+								outcome="/pages/contable/scfactura/operaciones/scfacturaventa.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="facturacion_screcibocompra_edicion"
+								style="color:#{usuario.evaluarPermiso('facturacion_screcibocompra_edicion') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('facturacion_screcibocompra_edicion')}"
+								value="#{msgRecurso.lbl_menu_contable_screcibocaja_compra}"
+								icon="pi pi-cloud-upload"
+								outcome="/pages/contable/screcibocaja/edicion/screcibocompra.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="facturacion_screciboventa_edicion"
+								style="color:#{usuario.evaluarPermiso('facturacion_screciboventa_edicion') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('facturacion_screciboventa_edicion')}"
+								value="#{msgRecurso.lbl_menu_contable_screcibocaja_venta}"
+								icon="pi pi-cloud-download"
+								outcome="/pages/contable/screcibocaja/edicion/screciboventa.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="facturacion_screcibocompra_consulta"
+								style="color:#{usuario.evaluarPermiso('facturacion_screcibocompra_consulta') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('facturacion_screcibocompra_consulta')}"
+								value="#{msgRecurso.lbl_menu_contable_screcibocaja_compra_consulta}"
+								icon="pi pi-search-minus"
+								outcome="/pages/contable/screcibocaja/consulta/screcibocompra.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="facturacion_screciboventa_consulta"
+								style="color:#{usuario.evaluarPermiso('facturacion_screciboventa_consulta') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('facturacion_screciboventa_consulta')}"
+								value="#{msgRecurso.lbl_menu_contable_screcibocaja_venta_consulta}"
+								icon="pi pi-search-plus"
+								outcome="/pages/contable/screcibocaja/consulta/screciboventa.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="facturacion_scfacturacompra_copago"
+								style="color:#{usuario.evaluarPermiso('facturacion_scfacturaventa_edicion') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('facturacion_scfacturaventa_edicion')}"
+								value="#{msgRecurso.lbl_menu_contable_scfactura_copagos}"
+								icon="pi pi-chart-bar"
+								outcome="/pages/contable/scfactura/consulta/scfacturaventa.xhtml?TIPO=CONSULTA_CITAS_COPAGO"
+								onclick="PF('bui').show();return true;" />
+
+
+							<p:menuitem id="mtto_medicalCartera_venta"
+								style="color:#{usuario.evaluarPermiso('mtto_medicalCartera') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_medicalCartera')}"
+								value="#{msgRecurso.lbl_menu_contable_scfactura_gestion_cartera_venta}"
+								icon="pi pi-wallet"
+								outcome="/pages/mtto/gestion_cartera/gestion_cartera.xhtml"
+								onclick="PF('bui').show();return true;">
+								<f:param name="Fase_Cartera" value="VENTA" />
+
+							</p:menuitem>
+
+							<p:menuitem id="mtto_medicalCartera_compra"
+								style="color:#{usuario.evaluarPermiso('mtto_medicalCartera') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_medicalCartera')}"
+								value="#{msgRecurso.lbl_menu_contable_scfactura_gestion_cartera_compra}"
+								icon="pi pi-wallet"
+								outcome="/pages/mtto/gestion_cartera/gestion_cartera.xhtml"
+								onclick="PF('bui').show();return true;">
+								<f:param name="Fase_Cartera" value="COMPRA" />
+							</p:menuitem>
+
+						</p:submenu>
+					</p:submenu>
+
+					<p:submenu id="presupuesto"
+						label="#{msgRecurso.lbl_menu_presupuesto}">
+						<p:submenu label="#{msgRecurso.lbl_menu_presupuesto}"
+							icon="pi pi-chart-bar">
+
+							<p:menuitem id="presupuesto_tipo_ingreso"
+								style="color:#{usuario.evaluarPermiso('presupuesto_tipo_ingreso') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('presupuesto_tipo_ingreso')}"
+								value="#{msgRecurso.lbl_pages_presupuesto_tipo_ingreso}"
+								icon="pi pi-arrow-up"
+								outcome="/pages/presupuesto/tipo_ingreso/tipo_ingreso.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="presupuesto_tipo_gasto"
+								style="color:#{usuario.evaluarPermiso('presupuesto_tipo_gasto') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('presupuesto_tipo_gasto')}"
+								value="#{msgRecurso.lbl_pages_presupuesto_tipo_gasto}"
+								icon="pi pi-arrow-down"
+								outcome="/pages/presupuesto/tipo_gasto/tipo_gasto.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="presupuesto_tipo_recurso"
+								style="color:#{usuario.evaluarPermiso('presupuesto_tipo_recurso') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('presupuesto_tipo_recurso')}"
+								value="#{msgRecurso.lbl_pages_presupuesto_tipo_recurso}"
+								icon="pi pi-paperclip"
+								outcome="/pages/presupuesto/tipo_recurso/tipo_recurso.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="presupuesto_prb_estructura"
+								style="color:#{usuario.evaluarPermiso('presupuesto_prb_estructura') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('presupuesto_prb_estructura')}"
+								value="#{msgRecurso.lbl_pages_presupuesto_prb_estructura}"
+								icon="pi pi-user"
+								outcome="/pages/presupuesto/prb_estructura/prb_estructura.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="presupuesto_nivel_presupuesto"
+								style="color:#{usuario.evaluarPermiso('presupuesto_nivel_presupuesto') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('presupuesto_nivel_presupuesto')}"
+								value="#{msgRecurso.lbl_pages_presupuesto_nivel_presupuesto}"
+								icon="pi pi-user"
+								outcome="/pages/presupuesto/nivel_presupuesto/nivel_presupuesto.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="presupuesto_prb_concepto"
+								style="color:#{usuario.evaluarPermiso('presupuesto_prb_concepto') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('presupuesto_prb_concepto')}"
+								value="#{msgRecurso.lbl_pages_presupuesto_prb_concepto}"
+								icon="pi pi-user"
+								outcome="/pages/presupuesto/prb_concepto/prb_concepto.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="presupuesto_prb_entidad"
+								style="color:#{usuario.evaluarPermiso('presupuesto_prb_entidad') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('presupuesto_prb_entidad')}"
+								value="#{msgRecurso.lbl_pages_presupuesto_prb_entidad}"
+								icon="pi pi-user"
+								outcome="/pages/presupuesto/prb_entidad/prb_entidad.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="presupuesto_prb_presupuesto_ingreso"
+								style="color:#{usuario.evaluarPermiso('presupuesto_prb_presupuesto_ingreso') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('presupuesto_prb_presupuesto_ingreso')}"
+								value="#{msgRecurso.lbl_pages_presupuesto_prb_presupuesto_ingreso}"
+								icon="pi pi-user"
+								outcome="/pages/presupuesto/prb_presupuesto/prb_presupuesto.xhtml?tipoPresupuesto=1"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="presupuesto_prb_presupuesto_egreso"
+								style="color:#{usuario.evaluarPermiso('presupuesto_prb_presupuesto_egreso') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('presupuesto_prb_presupuesto_egreso')}"
+								value="#{msgRecurso.lbl_pages_presupuesto_prb_presupuesto_egreso}"
+								icon="pi pi-user"
+								outcome="/pages/presupuesto/prb_presupuesto/prb_presupuesto.xhtml?tipoPresupuesto=2"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="presupuesto_prb_dependencia"
+								style="color:#{usuario.evaluarPermiso('presupuesto_prb_dependencia') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('presupuesto_prb_dependencia')}"
+								value="#{msgRecurso.lbl_pages_presupuesto_prb_dependencia}"
+								icon="pi pi-user"
+								outcome="/pages/presupuesto/prb_dependencia/prb_dependencia.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="presupuesto_prb_cdp"
+								style="color:#{usuario.evaluarPermiso('presupuesto_prb_cdp') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('presupuesto_prb_cdp')}"
+								value="#{msgRecurso.lbl_pages_presupuesto_prb_cdp}"
+								icon="pi pi-user"
+								outcome="/pages/presupuesto/prb_cdp/prb_cdp.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="presupuesto_prb_rp"
+								style="color:#{usuario.evaluarPermiso('presupuesto_prb_rp') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('presupuesto_prb_rp')}"
+								value="#{msgRecurso.lbl_pages_presupuesto_prb_rp}"
+								icon="pi pi-user"
+								outcome="/pages/presupuesto/prb_rp/prb_rp.xhtml"
+								onclick="PF('bui').show();return true;" />
+
+						</p:submenu>
+					</p:submenu>
+
+					<p:submenu id="autorizacionPagos"
+						label="#{msgRecurso.lbl_menu_autorizacion_para_pagos}">
+						<p:submenu label="#{msgRecurso.lbl_menu_autorizacion_para_pagos}"
+							icon="pi pi-check-square">
+							<p:menuitem id="menuPrbResolucionEncabezado"
+								style="color:#{usuario.evaluarPermiso('menuPrbResolucionEncabezado') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('')}"
+								value="#{msgRecurso.lbl_pages_dashboard_prb_resolucion_encabezado}"
+								icon="pi pi-wallet"
+								outcome="/pages/cost/prb_resolucion/prb_resolucion_encabezado/prb_resolucion_encabezado.xhtml"
+								onclick="PF('bui').show();return true;">
+								<f:param name="phase" value="G" />
+							</p:menuitem>
+							<p:menuitem id="menuPrbResolucionIniciado"
+								style="color:#{usuario.evaluarPermiso('menuPrbResolucionIniciado') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('')}"
+								value="#{msgRecurso.lbl_pages_dashboard_prb_resolucion_inicado}"
+								icon="pi pi-wallet"
+								outcome="/pages/cost/prb_resolucion/prb_resolucion_iniciado/prb_resolucion_iniciado.xhtml"
+								onclick="PF('bui').show();return true;">
+								<f:param name="phase" value="G_INICIADO" />
+							</p:menuitem>
+							<p:menuitem id="menuPrbResolucionProyectado"
+								style="color:#{usuario.evaluarPermiso('menuPrbResolucionProyectado') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('')}"
+								value="#{msgRecurso.lbl_pages_dashboard_prb_resolucion_proyectado}"
+								icon="pi pi-wallet"
+								outcome="/pages/cost/prb_resolucion/prb_resolucion_proyectado/prb_resolucion_proyectado.xhtml"
+								onclick="PF('bui').show();return true;">
+								<f:param name="phase" value="G_PROYECTADO" />
+							</p:menuitem>
+							<p:menuitem id="menuPrbResolucionFormalizado"
+								style="color:#{usuario.evaluarPermiso('menuPrbResolucionFormalizado') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('')}"
+								value="#{msgRecurso.lbl_pages_dashboard_prb_resolucion_formalizado}"
+								icon="pi pi-wallet"
+								outcome="/pages/cost/prb_resolucion/prb_resolucion_formalizado/prb_resolucion_formalizado.xhtml"
+								onclick="PF('bui').show();return true;">
+								<f:param name="phase" value="G_FORMALIZADO" />
+							</p:menuitem>
+							<p:menuitem id="menuPrbRpDetalleMovimientoLog"
+								style="color:#{usuario.evaluarPermiso('menuPrbRpDetalleMovimientoLog') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('')}"
+								value="#{msgRecurso.lbl_pages_dashboard_prb_rp_detalle_movimiento_log}"
+								icon="pi pi-wallet"
+								outcome="/pages/cost/prb_resolucion/prb_rp_detalle_movimiento_log/prb_rp_detalle_movimiento_log.xhtml"
+								onclick="PF('bui').show();return true;">
+								<f:param name="phase" value="G_FORMALIZADO" />
+							</p:menuitem>
+
+						</p:submenu>
+					</p:submenu>
+
+					<p:submenu id="rips" label="#{msgRecurso.lbl_menu_rips}">
+						<p:submenu label="#{msgRecurso.lbl_menu_rips}"
+							icon="pi pi-check-square">
+							<p:menuitem id="rips_ctcontratorips"
+								style="color:#{usuario.evaluarPermiso('rips_ctcontratorips') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('rips_ctcontratorips')}"
+								value="#{msgRecurso.lbl_menu_rips_rips}" icon="pi pi-copy"
+								outcome="/pages/rips/ctcontratorips/ctcontratorips.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="sc_recepcion"
+								style="color:#{usuario.evaluarPermiso('sc_recepcion') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('sc_recepcion')}"
+								value="#{msgRecurso.lbl_menu_rips_recepcion}" icon="pi pi-tags"
+								outcome="/pages/rips/screcepcion/screcepcion.xhtml"
+								onclick="PF('bui').show();return true;" />
+						</p:submenu>
+					</p:submenu>
+
+					<p:submenu id="libro" label="#{msgRecurso.lbl_menu_libro}">
+						<p:submenu label="#{msgRecurso.lbl_menu_libro}" icon="pi pi-book">
+							<p:menuitem id="libro_scsaldo"
+								style="color:#{usuario.evaluarPermiso('libro_scsaldo') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('libro_scsaldo')}"
+								value="#{msgRecurso.lbl_menu_libro_scsaldo}" icon="pi pi-map"
+								outcome="/pages/contable/scsaldo/scsaldo.xhtml"
+								onclick="PF('bui').show();return true;" />
+						</p:submenu>
+					</p:submenu>
+
+					<p:submenu id="reportes" label="#{msgRecurso.lbl_menu_reportes}">
+						<p:submenu id="repcontables"
+							label="#{msgRecurso.lbl_menu_reportes_contables}"
+							icon="pi pi-sort-numeric-down-alt">
+							<p:menuitem id="reportes_libroauxiliar"
+								style="color:#{usuario.evaluarPermiso('reportes_libroauxiliar') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('reportes_libroauxiliar')}"
+								value="#{msgRecurso.lbl_menu_reportes_contables_libro_auxiliar}"
+								icon="pi pi-chart-bar"
+								outcome="/pages/reportes/reportes.xhtml?reporte=1"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="reportes_balancecomprobacion"
+								style="color:#{usuario.evaluarPermiso('reportes_balancecomprobacion') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('reportes_balancecomprobacion')}"
+								value="#{msgRecurso.lbl_menu_reportes_contables_balance_comprobacion}"
+								icon="pi pi-chart-bar"
+								outcome="/pages/reportes/reportes.xhtml?reporte=2"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="reportes_librodiario"
+								style="color:#{usuario.evaluarPermiso('reportes_librodiario') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('reportes_librodiario')}"
+								value="#{msgRecurso.lbl_menu_reportes_contables_libro_diario}"
+								icon="pi pi-chart-bar"
+								outcome="/pages/reportes/reportes.xhtml?reporte=3"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="reportes_libromayor"
+								style="color:#{usuario.evaluarPermiso('reportes_libromayor') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('reportes_libromayor')}"
+								value="#{msgRecurso.lbl_menu_reportes_contables_libro_mayor}"
+								icon="pi pi-chart-bar"
+								outcome="/pages/reportes/reportes.xhtml?reporte=4"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="reportes_carteragenerica"
+								style="color:#{usuario.evaluarPermiso('reportes_carteragenerica') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('reportes_carteragenerica')}"
+								value="#{msgRecurso.lbl_menu_reportes_contables_cartera_generica}"
+								icon="pi pi-chart-bar"
+								outcome="/pages/reportes/reportes.xhtml?reporte=5"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="reportes_proveedorgenerica"
+								style="color:#{usuario.evaluarPermiso('reportes_proveedorgenerica') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('reportes_proveedorgenerica')}"
+								value="#{msgRecurso.lbl_pages_reportes_proveedor_generico_titulo}"
+								icon="pi pi-chart-bar"
+								outcome="/pages/reportes/reportes.xhtml?reporte=6"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="reportes_situacion_financiera"
+								style="color:#{usuario.evaluarPermiso('reportes_situacionfinanciera') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('reportes_situacionfinanciera')}"
+								value="#{msgRecurso.lbl_pages_reportes_contable_balancegeneral_titulo}"
+								icon="pi pi-chart-bar"
+								outcome="/pages/reportes/reportes.xhtml?reporte=9"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="reportes_estado_resultado"
+								style="color:#{usuario.evaluarPermiso('reportes_estadoresultado') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('reportes_estadoresultado')}"
+								value="#{msgRecurso.lbl_pages_reportes_contable_estadoresultado_titulo}"
+								icon="pi pi-chart-bar"
+								outcome="/pages/reportes/reportes.xhtml?reporte=10"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="reportes_listado_documentos"
+								style="color:#{usuario.evaluarPermiso('reportes_listadodocumentos') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('reportes_listadodocumentos')}"
+								value="#{msgRecurso.lbl_pages_reportes_contable_listadodocumento_titulo}"
+								icon="pi pi-chart-bar"
+								outcome="/pages/reportes/reportes.xhtml?reporte=11"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="reportes_certificado_retencion"
+								style="color:#{usuario.evaluarPermiso('reportes_certificadoretencion') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('reportes_certificadoretencion')}"
+								value="#{msgRecurso.lbl_pages_reportes_contable_certificadoretencion_titulo}"
+								icon="pi pi-chart-bar"
+								outcome="/pages/reportes/reportes.xhtml?reporte=12"
+								onclick="PF('bui').show();return true;" />
+						</p:submenu>
+						<p:submenu id="repcitas"
+							label="#{msgRecurso.lbl_menu_reportes_citas}"
+							icon="pi pi-sort-alpha-down">
+							<p:menuitem id="reporte_resolucion_256"
+								style="color:#{usuario.evaluarPermiso('reporte_resolucion_256') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('reporte_resolucion_256')}"
+								value="#{msgRecurso.lbl_menu_reportes_resolucion_256}"
+								icon="pi pi-chart-bar"
+								outcome="/pages/reportes/reportes.xhtml?reporte=7"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="reportes_resolucion_202"
+								style="color:#{usuario.evaluarPermiso('reportes_resolucion_202') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('reportes_resolucion_202')}"
+								value="#{msgRecurso.lbl_menu_reportes_resolucion_202}"
+								icon="pi pi-chart-bar"
+								outcome="/pages/reportes/reportesresolucion202/reportesresolucion202.xhtml"
+								onclick="PF('bui').show();return true;" />
+						</p:submenu>
+						<p:submenu id="reporteador"
+							label="#{msgRecurso.lbl_menu_reportes_reporteador}"
+							icon="pi pi-file-o">
+							<p:menuitem id="mtto_re_api"
+								style="color:#{usuario.evaluarPermiso('mtto_re_api') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_re_api')}"
+								value="#{msgRecurso.lbl_menu_reportes_reporteador_tittle_re_api}"
+								icon="pi pi-id-card"
+								outcome="/pages/reportes/reporteador/re_api/api.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_reportes"
+								style="color:#{usuario.evaluarPermiso('mtto_reportes') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_reportes')}"
+								value="#{msgRecurso.lbl_menu_reportes_reporteador_tittle_reportes}"
+								icon="pi pi-id-card"
+								outcome="/pages/reportes/reporteador/reporte/reporte.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_modulo_reporte"
+								style="color:#{usuario.evaluarPermiso('mtto_modulo_reporte') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_modulo_reporte')}"
+								value="#{msgRecurso.lbl_menu_reportes_reporteador_tittle_modulo_reporte}"
+								icon="pi pi-id-card"
+								outcome="/pages/reportes/reporteador/modulo_reporte/modulo.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="reGeneracionReportes"
+								style="color:#{usuario.evaluarPermiso('reGeneracionReportes') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('reGeneracionReportes')}"
+								value="#{msgRecurso.lbl_menu_reportes_reporteador_tittle_generacion_reporte}"
+								icon="pi pi-id-card"
+								outcome="/pages/reportes/reporteador/reporte/reporte.xhtml?phase=GENERACION"
+								onclick="PF('bui').show();return true;" />
+						</p:submenu>
+					</p:submenu>
+					<p:submenu id="idMenuRecursosFisicos"
+						label="#{msgRecurso.lbl_menu_recursos_fisicos}"
+						icon="pi pi-desktop">
+						<p:submenu id="idSubMenuActivosFijos"
+							label="#{msgRecurso.lbl_menu_activos_fijos}" icon="pi pi-desktop">
+							<p:menuitem id="contable_scactivofijoencabezado"
+								style="color:#{usuario.evaluarPermiso('contable_scactivofijoencabezado') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('contable_scactivofijoencabezado')}"
+								value="#{msgRecurso.lbl_menu_contable_scactivofijoencabezado}"
+								icon="pi pi-desktop"
+								outcome="/pages/contable/activos_fijos/activo_fijo_encabezado/activo_fijo_encabezado.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="mtto_tbcategoriaactivofijo"
+								style="color:#{usuario.evaluarPermiso('mtto_tbcategoriaactivofijo') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('mtto_tbcategoriaactivofijo')}"
+								value="#{msgRecurso.lbl_menu_mtto_tbcategoriaactivofijo}"
+								icon="pi pi-desktop"
+								outcome="/pages/contable/activos_fijos/categoria_activo_fijo/categoria_activo_fijo.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="contable_scactivofijodepreciacion"
+								style="color:#{usuario.evaluarPermiso('contable_scactivofijodepreciacion') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('contable_scactivofijodepreciacion')}"
+								value="#{msgRecurso.lbl_menu_contable_scactivofijo_depreciacion}"
+								icon="pi pi-desktop"
+								outcome="/pages/contable/activos_fijos/depreciacion/depreciacion.xhtml"
+								onclick="PF('bui').show();return true;" />
+
+
+							<p:menuitem id="tbBodega"
+								style="color:#{usuario.evaluarPermiso('tbBodega') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('tbBodega')}"
+								value="#{msgRecurso.lbl_menu_contable_bodega}"
+								icon="pi pi-desktop"
+								outcome="/pages/contable/bodega/bodega.xhtml"
+								onclick="PF('bui').show();return true;" />
+
+							<p:menuitem id="scActivoFijoArticulo"
+								style="color:#{usuario.evaluarPermiso('scActivoFijoArticulo') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('scActivoFijoArticulo')}"
+								value="#{msgRecurso.lbl_menu_contable_activos_fijos_articulos}"
+								icon="pi pi-desktop"
+								outcome="/pages/contable/activos_fijos/articulos/articulos.xhtml"
+								onclick="PF('bui').show();return true;" />
+						</p:submenu>
+
+						<p:submenu id="idSubMenuProvedores"
+							label="#{msgRecurso.lbl_menu_proveedores}" icon="pi pi-users">
+							<p:menuitem id="pvProveedorEncabezado"
+								style="color:#{usuario.evaluarPermiso('pvProveedorEncabezado') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('pvProveedorEncabezado')}"
+								value="#{msgRecurso.lbl_menu_contable_registro_proveedores}"
+								icon="pi pi-user-plus"
+								outcome="/pages/contable/pv_proveedor_encabezado/pv_proveedor_encabezado.xhtml"
+								onclick="PF('bui').show();return true;" />
+							<p:menuitem id="usuarios_proveedor"
+								style="color:#{usuario.evaluarPermiso('usuarios_proveedor') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('usuarios_proveedor')}"
+								value="#{msgRecurso.lbl_menu_contable_usuarios_proveedores}"
+								icon="pi pi-user"
+								outcome="/pages/contable/usuarios_proveedor/usuario_proveedor.xhtml"
+								onclick="PF('bui').show();return true;" />
+
+							<p:menuitem id="certificado_proveedores"
+								style="color:#{usuario.evaluarPermiso('certificado_proveedores') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('certificado_proveedores')}"
+								value="#{msgRecurso.lbl_menu_contable_certificacion_proveedores}"
+								icon="pi pi-star"
+								outcome="/pages/contable/certificado_proveedores/certificado_proveedores.xhtml"
+								onclick="PF('bui').show();return true;" />
+
+							<p:menuitem id="encuestaProveedorEncabezado"
+								style="color:#{usuario.evaluarPermiso('encuestaProveedorEncabezado') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('encuestaProveedorEncabezado')}"
+								value="#{msgRecurso.lbl_menu_contable_encuesta_proveedores}"
+								icon="pi pi-check-square"
+								outcome="/pages/encuesta_proveedor/encuesta_proveedor.xhtml"
+								onclick="PF('bui').show();return true;" />
+
+							<p:menuitem id="aplicarEncuestaProveedor"
+								style="color:#{usuario.evaluarPermiso('aplicarEncuestaProveedor') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('aplicarEncuestaProveedor')}"
+								value="#{msgRecurso.lbl_menu_contable_aplicar_encuesta_proveedores}"
+								icon="pi pi-check-square"
+								outcome="/pages/aplicar_encuesta_proveedor/aplicar_encuesta_proveedor.xhtml"
+								onclick="PF('bui').show();return true;" />
+
+
+						</p:submenu>
+						<p:submenu id="idSubMenuAlmacen"
+							label="#{msgRecurso.lbl_menu_almacen}" icon="pi pi-th-large">
+							<p:menuitem id="scActivoFijoAlmacen"
+								style="color:#{usuario.evaluarPermiso('scActivoFijoAlmacen') ? usuario.getColorEnabled() : usuario.getColorGray()}"
+								disabled="#{!usuario.evaluarPermiso('scActivoFijoAlmacen')}"
+								value="#{msgRecurso.lbl_menu_contable_entradas_almacen}"
+								icon="pi pi-sign-in"
+								outcome="/pages/contable/activos_fijos/entradas_almacen/entradas.xhtml"
+								onclick="PF('bui').show();return true;" />
+						</p:submenu>
+					</p:submenu>
+					<p:separator />
+				</pr:menu>
+			</h:form>
+		</div>
+	</div>
+
+	<!--     </div> -->
+
+</ui:composition>

@@ -1,0 +1,77 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>Bandelsal - Blogs</title>
+        <link rel="stylesheet" type="text/css" href="src/main/webapp/estilos.css" />
+    </h:head>
+	
+    <h:body style="background-image: url('bandelsal.png');background-repeat: no-repeat;background-size: 100% 100%;">
+    <div class="container">
+    	<h:form prependId="false" style="text-align:start;" id="brEdit">
+				<p:menu widgetVar="RainMenuWidget" toggleable="true">
+					<p:menuitem
+						value="#{msgRecurso.lbl_menu_dashboard}" icon="pi pi-home"
+						outcome="/dashboard" />
+					<p:submenu id="mtto" label="Mantenimientos"
+						icon="pi pi-cog">
+						<p:menuitem
+							style="color:green;"
+							value="Blogs" icon="pi pi-book"
+							outcome="/pages/blogs/blogs_query.xhtml"></p:menuitem>
+						<p:menuitem
+							style="color:green;"
+							value="Readers" icon="pi pi-user"
+							outcome="/pages/readers/readers_query.xhtml"></p:menuitem>
+						<p:menuitem
+							style="color:green;"
+							value="Readers x Blogs" icon="pi pi-users"
+							outcome="/pages/blogsreaders/blogsreaders_query.xhtml"></p:menuitem>
+					</p:submenu>
+				</p:menu>
+			</h:form>
+		</div>
+		
+        <div class="container" align="center">
+        	
+            <h:form id="formBlogRMtto">
+                <h3 style="color: white">READERS X BLOGS</h3>
+
+                <p:panelGrid columns="2" style="width:80%;">
+                    <p:outputLabel value="Readers:" />
+                    <p:selectOneMenu style="width:100%;" value="#{blogreaderFormBean.blogsReadersDto.rId}" effect="fade">
+							<f:selectItems value="#{blogreaderFormBean.readers}"
+								var="read" itemLabel="#{read.names}" itemValue="#{read.id}"
+								style="text-align:left" />
+						</p:selectOneMenu>
+
+                </p:panelGrid>
+                
+                <p:panelGrid columns="2" style="width:80%;">
+                    <p:outputLabel value="Blogs:" />
+                    <p:selectOneMenu style="width:100%;" value="#{blogreaderFormBean.blogsReadersDto.bId}" effect="fade">
+							<f:selectItems value="#{blogreaderFormBean.blogs}"
+								var="combo" itemLabel="#{combo.title}" itemValue="#{combo.id}"
+								style="text-align:left" />
+						</p:selectOneMenu>
+
+                </p:panelGrid>
+                
+                <p:panelGrid columns="2">
+                	<p:commandButton value="Atras" icon="pi pi-chevron-left"
+                				action="#{blogreaderFormBean.anterior}" 
+                				update="formBlogRMtto" styleClass="p-button" />
+                	
+                	<p:commandButton value="Enviar" icon="pi pi-check" ajax="false"
+                				action="#{blogreaderFormBean.actualizar}"
+                				styleClass="p-button" />
+                </p:panelGrid>
+			
+             <p:messages id="messages" showDetail="true" autoUpdate="true" />    
+            </h:form>
+        </div>
+    </h:body>
+</ui:composition>
